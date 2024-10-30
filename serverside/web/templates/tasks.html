@@ -1,0 +1,176 @@
+{{ template "header.html" .context }}
+
+<!-- Source: https://getbootstrap.com/docs/5.3/examples/starter-template/ -->
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+	<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+		<a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+			<svg class="bi me-2" width="40" height="32">
+				<use xlink:href="#bootstrap" />
+			</svg>
+			<span class="fs-4">Tasks</span>
+		</a>
+	</header>
+
+	<main>
+		<button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add New Task</button>
+		<div class="row">
+			{{ range .tasks}}
+			<div class="col-sm-6 mb-3 mb-sm-0 mt-2" id="questions">
+
+				<div class="card" id="{{ .ID }}">
+					<div class="card-body">
+						<h5 class="card-title">{{ .Question }} [{{ .ID }}]</h5>
+						<p class="card-text">
+						<p>Correct Answer: {{ .CorrectAnswer }}</p>
+						<p>Possible Answers:</p>
+						<ul>
+							{{ range .PossibleAnswers }}
+							<li>{{ . }}</li>
+							{{ end }}
+						</ul>
+						<button class="btn btn-danger" onclick="deleteQuestion(this)">Delete Question</button>
+					</div>
+				</div>
+
+			</div>
+			{{ end }}
+		</div>
+
+		<!-- Source: https://getbootstrap.com/docs/5.3/components/modal/ -->
+		<div class="modal fade" id="addTaskModal" tabindex="-1" aria-labelledby="addTaskModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="addTaskModalLabel">Add new task</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="newQuestion" class="form-label">Question</label>
+								<input class="form-control" id="newQuestion" aria-describedby="newQuestionHelp">
+								<div id="newQuestionHelp" class="form-text">
+									You can use latex notation for math formulas
+								</div>
+							</div>
+							<div class="mb-3">
+								<label for="correctAnswer" class="form-label">Correct answer</label>
+								<input class="form-control" placeholder="Correct Answer" id="correctAnswer">
+							</div>
+							<div class="mb-3" id="possibleAnswers">
+								<label class="form-label">Possible answers</label>
+								<input class="form-control" placeholder="1. Possible Answer" id="possibleAnswer-1">
+								<input class="form-control" placeholder="2. Possible Answer" id="possibleAnswer-2">
+								<input class="form-control" placeholder="3. Possible Answer" id="possibleAnswer-3">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onclick="addQuestion(this)">Add Question</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Source: https://getbootstrap.com/docs/5.3/components/toasts/#live-example -->
+		<div class="toast-container position-fixed bottom-0 end-0 p-3">
+			<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+					<strong class="me-auto">Bootstrap</strong>
+					<small>11 mins ago</small>
+					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+				<div class="toast-body">
+					Hello, world! This is a toast message.
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</main>
+</div>
+
+<script>
+	function deleteQuestion(button) {
+		var id = button.parentElement.parentElement.id;
+
+		fetch('/api/questions/' + id, {
+			method: 'DELETE',
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Failed to delete question");
+				}
+				return response;
+			})
+			.then(data => {
+				location.reload();
+			}).catch((error) => {
+				const text = error.message;
+				console.error('Error:', text);
+				const toastLiveExample = document.getElementById('liveToast')
+				toastLiveExample.querySelector('.toast-body').innerText = "Error: " + text
+				const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+				toastBootstrap.show()
+			});
+	}
+
+	function addQuestion(button) {
+		var question = document.getElementById("newQuestion").value;
+		var correctAnswer = document.getElementById("correctAnswer").value;
+		var possibleAnswers = [];
+		for (var i = 1; i <= 3; i++) {
+			possibleAnswers.push(document.getElementById("possibleAnswer-" + i).value);
+		}
+
+		fetch('/api/questions', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				"question": question,
+				"correctAnswer": correctAnswer,
+				"possibleAnswers": possibleAnswers
+			})
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Failed to add question");
+				}
+				return response.json();
+			})
+			.then(data => {
+				resetModalForm();
+				location.reload();
+			}).catch((error) => {
+				const text = error.message;
+				const toastLiveExample = document.getElementById('liveToast')
+				toastLiveExample.querySelector('.toast-body').innerText = "Error: " + text
+				const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+				toastBootstrap.show()
+
+
+			});
+	}
+
+	$('#addTaskModal').on('hidden.bs.modal', function (e) {
+		resetModalForm();
+	})
+
+	function resetModalForm() {
+		document.getElementById("newQuestion").value = "";
+		document.getElementById("correctAnswer").value = "";
+		for (var i = 1; i <= 3; i++) {
+			document.getElementById("possibleAnswer-" + i).value = "";
+		}
+	}
+
+</script>
+
+</body>
+
+</html>

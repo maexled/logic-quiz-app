@@ -1,0 +1,1802 @@
+[
+    {
+        "originalFormula": "(T OR (R AND P))",
+        "correctTransformedFormula": "((R AND P) OR T)",
+        "wrongTransformedFormulas": [
+            "(((T AND R) OR T) AND ((T AND R) OR P))",
+            "((T AND R) OR (T AND P))",
+            "((T AND P) OR (T AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) AND T) AND (R OR P))",
+        "correctTransformedFormula": "((((NOT Q) AND T) AND R) OR (((NOT Q) AND T) AND P))",
+        "wrongTransformedFormulas": [
+            "((((NOT Q) AND T) OR P) AND (((NOT Q) AND T) OR R))",
+            "((((NOT Q) AND T) OR R) AND (((NOT Q) AND T) OR P))",
+            "((((((NOT Q) AND T) AND R) OR ((NOT Q) AND T)) OR (((NOT Q) AND T) AND R)) AND (((((NOT Q) AND T) AND R) OR ((NOT Q) AND T)) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT R) AND T) OR ((NOT P) AND Q))",
+        "correctTransformedFormula": "(((NOT P) AND Q) OR ((NOT R) AND T))",
+        "wrongTransformedFormulas": [
+            "(((((NOT R) AND T) AND (NOT P)) OR ((NOT R) AND T)) AND ((((NOT R) AND T) AND (NOT P)) OR Q))",
+            "((((NOT R) AND T) AND (NOT P)) OR (((NOT R) AND T) AND Q))",
+            "((((NOT R) AND T) AND Q) OR (((NOT R) AND T) AND (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND P) OR (NOT R))",
+        "correctTransformedFormula": "((NOT R) OR (S AND P))",
+        "wrongTransformedFormulas": [
+            "(((NOT R) AND S) OR ((NOT R) AND P))",
+            "((((NOT R) OR S) OR (NOT R)) AND (((NOT R) OR S) OR P))",
+            "((((NOT R) AND S) OR (NOT R)) AND (((NOT R) AND S) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) AND Q) OR ((NOT S) OR T))",
+        "correctTransformedFormula": "(((NOT S) OR T) OR ((NOT T) AND Q))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) OR T) AND (NOT T)) OR (((NOT S) OR T) AND Q))",
+            "(((((NOT S) OR T) OR (NOT T)) OR ((NOT S) OR T)) AND ((((NOT S) OR T) OR (NOT T)) OR Q))",
+            "(((((NOT S) OR T) AND (NOT T)) OR ((NOT S) OR T)) AND ((((NOT S) OR T) AND (NOT T)) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT P) OR (NOT P)) OR (R AND (NOT Q)))",
+        "correctTransformedFormula": "((((NOT P) OR (NOT P)) OR (NOT Q)) AND (((NOT P) OR (NOT P)) OR R))",
+        "wrongTransformedFormulas": [
+            "((((NOT P) OR (NOT P)) AND R) OR (((NOT P) OR (NOT P)) AND (NOT Q)))",
+            "(((((NOT P) OR (NOT P)) AND (NOT Q)) OR ((NOT P) OR (NOT P))) AND ((((NOT P) OR (NOT P)) AND (NOT Q)) OR R))",
+            "((((NOT P) OR (NOT P)) AND (NOT Q)) OR (((NOT P) OR (NOT P)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(T AND (S OR R))",
+        "correctTransformedFormula": "((T AND S) OR (T AND R))",
+        "wrongTransformedFormulas": [
+            "((T OR S) AND (T OR R))",
+            "((((T OR S) AND T) OR (T OR S)) AND (((T OR S) AND T) OR R))",
+            "((((T AND S) AND T) OR (T AND S)) AND (((T AND S) AND T) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((P OR R) AND (S OR R))",
+        "correctTransformedFormula": "(((P OR R) AND R) OR ((P OR R) AND S))",
+        "wrongTransformedFormulas": [
+            "(((P OR R) OR S) AND ((P OR R) OR R))",
+            "((((P OR R) OR S) AND (P OR R)) OR (((P OR R) OR S) AND R))",
+            "(((((P OR R) AND S) AND (P OR R)) OR ((P OR R) AND S)) AND ((((P OR R) AND S) AND (P OR R)) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(R AND (Q OR (NOT R)))",
+        "correctTransformedFormula": "((R AND Q) OR (R AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "((R OR (NOT R)) AND (R OR Q))",
+            "(((R OR Q) AND R) OR ((R OR Q) AND (NOT R)))",
+            "((R OR Q) AND (R OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "((S OR (NOT T)) AND (NOT P))",
+        "correctTransformedFormula": "((NOT P) AND (S OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((NOT P) OR S) AND ((NOT P) OR (NOT T)))",
+            "((((NOT P) OR S) AND (NOT P)) OR (((NOT P) OR S) AND (NOT T)))",
+            "((((NOT P) AND S) AND (NOT P)) OR (((NOT P) AND S) AND (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR P) OR ((NOT S) AND R))",
+        "correctTransformedFormula": "(((R OR P) OR (NOT S)) AND ((R OR P) OR R))",
+        "wrongTransformedFormulas": [
+            "(((R OR P) AND (NOT S)) OR ((R OR P) AND R))",
+            "(((R OR P) AND R) OR ((R OR P) AND (NOT S)))",
+            "((((R OR P) AND (NOT S)) OR (R OR P)) AND (((R OR P) AND (NOT S)) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND (NOT S)) OR (T AND S))",
+        "correctTransformedFormula": "(((P AND (NOT S)) OR T) AND ((P AND (NOT S)) OR S))",
+        "wrongTransformedFormulas": [
+            "(((P AND (NOT S)) AND T) OR ((P AND (NOT S)) AND S))",
+            "((((P AND (NOT S)) OR T) OR S) AND (((P AND (NOT S)) OR T) OR (P AND (NOT S))))",
+            "((((P AND (NOT S)) AND T) OR (P AND (NOT S))) AND (((P AND (NOT S)) AND T) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND S) OR (NOT Q))",
+        "correctTransformedFormula": "((NOT Q) OR (P AND S))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) AND P) OR ((NOT Q) AND S))",
+            "((((NOT Q) AND P) OR (NOT Q)) AND (((NOT Q) AND P) OR S))",
+            "(((NOT Q) AND S) OR ((NOT Q) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND P) OR ((NOT S) AND (NOT P)))",
+        "correctTransformedFormula": "(((((NOT S) AND (NOT P)) OR T) AND ((NOT S) AND (NOT P))) OR ((((NOT S) AND (NOT P)) OR T) AND P))",
+        "wrongTransformedFormulas": [
+            "(((T AND P) AND (NOT S)) OR ((T AND P) AND (NOT P)))",
+            "(((T AND P) AND (NOT P)) OR ((T AND P) AND (NOT S)))",
+            "(((((T AND P) OR (NOT S)) AND (T AND P)) AND ((T AND P) OR (NOT S))) OR ((((T AND P) OR (NOT S)) AND (T AND P)) AND (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) OR T) OR (T AND (NOT P)))",
+        "correctTransformedFormula": "(((((NOT T) OR T) OR T) AND ((NOT T) OR T)) OR ((((NOT T) OR T) OR T) AND (NOT P)))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) OR T) AND (NOT P)) OR (((NOT T) OR T) AND T))",
+            "((((NOT T) OR T) AND T) OR (((NOT T) OR T) AND (NOT P)))",
+            "(((((NOT T) OR T) AND T) OR ((NOT T) OR T)) AND ((((NOT T) OR T) AND T) OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) AND (P OR R))",
+        "correctTransformedFormula": "((P OR R) AND (NOT Q))",
+        "wrongTransformedFormulas": [
+            "((((NOT Q) AND P) AND (NOT Q)) OR (((NOT Q) AND P) AND R))",
+            "(((NOT Q) OR R) AND ((NOT Q) OR P))",
+            "(((NOT Q) OR P) AND ((NOT Q) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND ((NOT P) OR R))",
+        "correctTransformedFormula": "(((NOT P) OR R) AND Q)",
+        "wrongTransformedFormulas": [
+            "((Q OR (NOT P)) AND (Q OR R))",
+            "(((Q AND (NOT P)) AND Q) OR ((Q AND (NOT P)) AND R))",
+            "((((Q AND (NOT P)) AND Q) OR (Q AND (NOT P))) AND (((Q AND (NOT P)) AND Q) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND Q) AND (S OR S))",
+        "correctTransformedFormula": "((((R AND Q) AND S) OR (R AND Q)) AND (((R AND Q) AND S) OR S))",
+        "wrongTransformedFormulas": [
+            "((R AND Q) OR S)",
+            "((((R AND Q) OR S) AND (R AND Q)) OR (((R AND Q) OR S) AND S))",
+            "(((R AND Q) OR S) AND ((R AND Q) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(P AND (R OR S))",
+        "correctTransformedFormula": "((R OR S) AND P)",
+        "wrongTransformedFormulas": [
+            "(((P OR R) AND P) OR ((P OR R) AND S))",
+            "(((P AND R) AND P) OR ((P AND R) AND S))",
+            "((((P OR R) AND P) OR (P OR R)) AND (((P OR R) AND P) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR R) OR ((NOT R) AND S))",
+        "correctTransformedFormula": "((((T OR R) OR S) AND (T OR R)) OR (((T OR R) OR S) AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((T OR R) AND (NOT R)) OR ((T OR R) AND S))",
+            "((((T OR R) OR (NOT R)) OR (T OR R)) AND (((T OR R) OR (NOT R)) OR S))",
+            "(((T OR R) AND S) OR ((T OR R) AND (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR (P AND (NOT R)))",
+        "correctTransformedFormula": "((P AND (NOT R)) OR T)",
+        "wrongTransformedFormulas": [
+            "((T AND P) OR (T AND (NOT R)))",
+            "((T AND (NOT R)) OR (T AND P))",
+            "(((T AND P) OR T) AND ((T AND P) OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(T AND ((NOT R) OR R))",
+        "correctTransformedFormula": "((T AND (NOT R)) OR (T AND R))",
+        "wrongTransformedFormulas": [
+            "(((T AND (NOT R)) AND R) OR ((T AND (NOT R)) AND T))",
+            "(((T AND R) AND T) OR ((T AND R) AND (NOT R)))",
+            "(((T AND (NOT R)) AND T) OR ((T AND (NOT R)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(S AND (P OR P))",
+        "correctTransformedFormula": "((P OR P) AND S)",
+        "wrongTransformedFormulas": [
+            "(((S OR P) AND S) OR ((S OR P) AND P))",
+            "((S OR P) AND (S OR P))",
+            "((((S OR P) AND S) OR (S OR P)) AND (((S OR P) AND S) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT P) AND (T OR P))",
+        "correctTransformedFormula": "((((NOT P) AND T) OR (NOT P)) AND (((NOT P) AND T) OR P))",
+        "wrongTransformedFormulas": [
+            "(((NOT P) OR T) AND ((NOT P) OR P))",
+            "(((NOT P) OR P) AND ((NOT P) OR T))",
+            "((((NOT P) OR T) AND (NOT P)) OR (((NOT P) OR T) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND R) OR ((NOT T) AND R))",
+        "correctTransformedFormula": "(((NOT T) AND R) OR (T AND R))",
+        "wrongTransformedFormulas": [
+            "(((T AND R) AND (NOT T)) OR ((T AND R) AND R))",
+            "((((T AND R) OR (NOT T)) OR R) AND (((T AND R) OR (NOT T)) OR (T AND R)))",
+            "((((T AND R) OR (NOT T)) OR (T AND R)) AND (((T AND R) OR (NOT T)) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(S AND (R OR T))",
+        "correctTransformedFormula": "(((S AND R) OR S) AND ((S AND R) OR T))",
+        "wrongTransformedFormulas": [
+            "((S OR R) AND (S OR T))",
+            "(((S OR R) AND S) OR ((S OR R) AND T))",
+            "(((S AND R) AND S) OR ((S AND R) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "(S AND (Q OR T))",
+        "correctTransformedFormula": "((Q OR T) AND S)",
+        "wrongTransformedFormulas": [
+            "(((S AND Q) AND S) OR ((S AND Q) AND T))",
+            "(((S OR T) AND S) OR ((S OR T) AND Q))",
+            "((S OR Q) AND (S OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT R) OR (NOT S)) AND (P OR P))",
+        "correctTransformedFormula": "((((NOT R) OR (NOT S)) AND P) OR (((NOT R) OR (NOT S)) AND P))",
+        "wrongTransformedFormulas": [
+            "((((NOT R) OR (NOT S)) OR P) AND (((NOT R) OR (NOT S)) OR P))",
+            "((((((NOT R) OR (NOT S)) AND P) OR ((NOT R) OR (NOT S))) OR (((NOT R) OR (NOT S)) AND P)) AND (((((NOT R) OR (NOT S)) AND P) OR ((NOT R) OR (NOT S))) OR P))",
+            "((((((NOT R) OR (NOT S)) OR P) AND ((NOT R) OR (NOT S))) OR (((NOT R) OR (NOT S)) OR P)) AND (((((NOT R) OR (NOT S)) OR P) AND ((NOT R) OR (NOT S))) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((Q OR P) AND T)",
+        "correctTransformedFormula": "(T AND (Q OR P))",
+        "wrongTransformedFormulas": [
+            "((T OR Q) AND (T OR P))",
+            "((T OR P) AND (T OR Q))",
+            "(((T AND Q) AND T) OR ((T AND Q) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "(R AND (S OR P))",
+        "correctTransformedFormula": "((R AND S) OR (R AND P))",
+        "wrongTransformedFormulas": [
+            "(((R AND S) AND P) OR ((R AND S) AND R))",
+            "(((R AND S) AND R) OR ((R AND S) AND P))",
+            "((R OR S) AND (R OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) AND P) OR ((NOT S) AND Q))",
+        "correctTransformedFormula": "(((NOT S) AND Q) OR ((NOT T) AND P))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND P) AND (NOT S)) OR (((NOT T) AND P) AND Q))",
+            "((((((NOT T) AND P) AND (NOT S)) OR ((NOT T) AND P)) AND (((NOT T) AND P) AND (NOT S))) OR (((((NOT T) AND P) AND (NOT S)) OR ((NOT T) AND P)) AND Q))",
+            "((((NOT T) AND P) AND Q) OR (((NOT T) AND P) AND (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND S) AND ((NOT P) OR (NOT T)))",
+        "correctTransformedFormula": "(((NOT P) OR (NOT T)) AND (Q AND S))",
+        "wrongTransformedFormulas": [
+            "((((Q AND S) OR (NOT P)) AND (Q AND S)) OR (((Q AND S) OR (NOT P)) AND (NOT T)))",
+            "(((Q AND S) OR (NOT P)) AND ((Q AND S) OR (NOT T)))",
+            "((((Q AND S) OR (NOT T)) AND (Q AND S)) OR (((Q AND S) OR (NOT T)) AND (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(R OR (Q AND (NOT T)))",
+        "correctTransformedFormula": "((Q AND (NOT T)) OR R)",
+        "wrongTransformedFormulas": [
+            "((((R OR Q) AND R) AND (R OR Q)) OR (((R OR Q) AND R) AND (NOT T)))",
+            "(((R OR Q) OR (NOT T)) AND ((R OR Q) OR R))",
+            "((R AND Q) OR (R AND (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR P) OR (T AND S))",
+        "correctTransformedFormula": "((T AND S) OR (R OR P))",
+        "wrongTransformedFormulas": [
+            "(((R OR P) AND T) OR ((R OR P) AND S))",
+            "((((R OR P) OR T) OR (R OR P)) AND (((R OR P) OR T) OR S))",
+            "((((R OR P) AND T) OR (R OR P)) AND (((R OR P) AND T) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND R) OR P)",
+        "correctTransformedFormula": "(P OR (S AND R))",
+        "wrongTransformedFormulas": [
+            "((P AND R) OR (P AND S))",
+            "((P AND S) OR (P AND R))",
+            "(((P AND S) OR P) AND ((P AND S) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR T) AND (T OR (NOT R)))",
+        "correctTransformedFormula": "((((R OR T) AND T) OR (R OR T)) AND (((R OR T) AND T) OR (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((R OR T) OR (NOT R)) AND ((R OR T) OR T))",
+            "((((R OR T) OR T) AND (R OR T)) OR (((R OR T) OR T) AND (NOT R)))",
+            "(((T OR (NOT R)) OR R) AND ((T OR (NOT R)) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND (P OR P))",
+        "correctTransformedFormula": "((((Q AND P) OR Q) AND (Q AND P)) OR (((Q AND P) OR Q) AND P))",
+        "wrongTransformedFormulas": [
+            "(((Q OR P) AND Q) OR ((Q OR P) AND P))",
+            "((Q OR P) AND (Q OR P))",
+            "(((Q OR P) AND P) OR ((Q OR P) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "((P OR R) AND (R AND Q))",
+        "correctTransformedFormula": "((R AND Q) AND (P OR R))",
+        "wrongTransformedFormulas": [
+            "((((R AND Q) AND P) AND (R AND Q)) OR (((R AND Q) AND P) AND R))",
+            "(((R AND Q) OR P) AND ((R AND Q) OR R))",
+            "(((R AND Q) OR R) AND ((R AND Q) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) AND ((NOT S) OR P))",
+        "correctTransformedFormula": "(((NOT Q) AND (NOT S)) OR ((NOT Q) AND P))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) OR (NOT S)) AND ((NOT Q) OR P))",
+            "((((NOT Q) OR (NOT S)) AND (NOT Q)) OR (((NOT Q) OR (NOT S)) AND P))",
+            "(((NOT Q) OR P) AND ((NOT Q) OR (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((P OR T) AND ((NOT R) OR T))",
+        "correctTransformedFormula": "(((NOT R) OR T) AND (P OR T))",
+        "wrongTransformedFormulas": [
+            "((((P OR T) OR (NOT R)) AND (P OR T)) OR (((P OR T) OR (NOT R)) AND T))",
+            "((((P OR T) AND (NOT R)) AND (P OR T)) OR (((P OR T) AND (NOT R)) AND T))",
+            "((((NOT R) OR T) OR T) AND (((NOT R) OR T) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) AND (R OR T))",
+        "correctTransformedFormula": "(((NOT Q) AND T) OR ((NOT Q) AND R))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) AND R) OR (NOT Q)) OR ((NOT Q) AND R)) AND ((((NOT Q) AND R) OR (NOT Q)) OR T))",
+            "(((NOT Q) OR R) AND ((NOT Q) OR T))",
+            "(((((NOT Q) OR R) AND (NOT Q)) OR ((NOT Q) OR R)) AND ((((NOT Q) OR R) AND (NOT Q)) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(R AND ((NOT S) OR T))",
+        "correctTransformedFormula": "((R AND (NOT S)) OR (R AND T))",
+        "wrongTransformedFormulas": [
+            "((((R OR (NOT S)) AND R) OR (R OR (NOT S))) AND (((R OR (NOT S)) AND R) OR T))",
+            "((R OR (NOT S)) AND (R OR T))",
+            "(((R OR (NOT S)) AND T) OR ((R OR (NOT S)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND (NOT T)) AND ((NOT Q) OR (NOT R)))",
+        "correctTransformedFormula": "(((NOT Q) OR (NOT R)) AND (P AND (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((((P AND (NOT T)) AND (NOT Q)) AND (P AND (NOT T))) OR ((P AND (NOT T)) AND (NOT Q))) AND ((((P AND (NOT T)) AND (NOT Q)) AND (P AND (NOT T))) OR (NOT R)))",
+            "((((P AND (NOT T)) OR (NOT Q)) AND (P AND (NOT T))) OR (((P AND (NOT T)) OR (NOT Q)) AND (NOT R)))",
+            "(((P AND (NOT T)) OR (NOT Q)) AND ((P AND (NOT T)) OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND Q) OR (Q AND (NOT T)))",
+        "correctTransformedFormula": "(((P AND Q) OR Q) AND ((P AND Q) OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((P AND Q) AND (NOT T)) OR ((P AND Q) AND Q))",
+            "(((Q AND (NOT T)) AND P) OR ((Q AND (NOT T)) AND Q))",
+            "((((P AND Q) OR Q) OR (P AND Q)) AND (((P AND Q) OR Q) OR (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND (NOT R)) OR (P AND (NOT P)))",
+        "correctTransformedFormula": "(((T AND (NOT R)) OR (NOT P)) AND ((T AND (NOT R)) OR P))",
+        "wrongTransformedFormulas": [
+            "(((P AND (NOT P)) AND (NOT R)) OR ((P AND (NOT P)) AND T))",
+            "((((T AND (NOT R)) OR P) OR (NOT P)) AND (((T AND (NOT R)) OR P) OR (T AND (NOT R))))",
+            "((((T AND (NOT R)) OR P) OR (T AND (NOT R))) AND (((T AND (NOT R)) OR P) OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) OR (T AND (NOT R)))",
+        "correctTransformedFormula": "((T AND (NOT R)) OR (NOT Q))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) OR T) OR (NOT Q)) AND ((NOT Q) OR T)) OR ((((NOT Q) OR T) OR (NOT Q)) AND (NOT R)))",
+            "((((NOT Q) OR (NOT R)) OR (NOT Q)) AND (((NOT Q) OR (NOT R)) OR T))",
+            "(((NOT Q) AND T) OR ((NOT Q) AND (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) OR S) AND R)",
+        "correctTransformedFormula": "(R AND ((NOT Q) OR S))",
+        "wrongTransformedFormulas": [
+            "((R OR (NOT Q)) AND (R OR S))",
+            "((R OR S) AND (R OR (NOT Q)))",
+            "(((R AND (NOT Q)) AND R) OR ((R AND (NOT Q)) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) AND (NOT R)) OR (P AND (NOT Q)))",
+        "correctTransformedFormula": "((P AND (NOT Q)) OR ((NOT T) AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND (NOT R)) AND P) OR (((NOT T) AND (NOT R)) AND (NOT Q)))",
+            "(((((NOT T) AND (NOT R)) AND P) OR ((NOT T) AND (NOT R))) AND ((((NOT T) AND (NOT R)) AND P) OR (NOT Q)))",
+            "(((((NOT T) AND (NOT R)) OR P) OR (NOT Q)) AND ((((NOT T) AND (NOT R)) OR P) OR ((NOT T) AND (NOT R))))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) AND ((NOT T) OR Q))",
+        "correctTransformedFormula": "(((NOT T) OR Q) AND (NOT R))",
+        "wrongTransformedFormulas": [
+            "((((NOT R) OR Q) AND (NOT R)) OR (((NOT R) OR Q) AND (NOT T)))",
+            "(((NOT R) OR Q) AND ((NOT R) OR (NOT T)))",
+            "((((NOT R) AND (NOT T)) AND (NOT R)) OR (((NOT R) AND (NOT T)) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT R) AND Q) OR ((NOT Q) AND R))",
+        "correctTransformedFormula": "(((NOT Q) AND R) OR ((NOT R) AND Q))",
+        "wrongTransformedFormulas": [
+            "(((((NOT R) AND Q) AND (NOT Q)) OR ((NOT R) AND Q)) AND ((((NOT R) AND Q) AND (NOT Q)) OR R))",
+            "((((NOT R) AND Q) AND R) OR (((NOT R) AND Q) AND (NOT Q)))",
+            "((((NOT R) AND Q) AND (NOT Q)) OR (((NOT R) AND Q) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT S) OR (Q AND P))",
+        "correctTransformedFormula": "(((NOT S) OR P) AND ((NOT S) OR Q))",
+        "wrongTransformedFormulas": [
+            "(((NOT S) AND Q) OR ((NOT S) AND P))",
+            "(((NOT S) AND P) OR ((NOT S) AND Q))",
+            "((((NOT S) OR Q) OR (NOT S)) AND (((NOT S) OR Q) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND (NOT Q)) AND ((NOT P) OR T))",
+        "correctTransformedFormula": "((((S AND (NOT Q)) AND (NOT P)) OR (S AND (NOT Q))) AND (((S AND (NOT Q)) AND (NOT P)) OR T))",
+        "wrongTransformedFormulas": [
+            "(((S AND (NOT Q)) OR T) AND ((S AND (NOT Q)) OR (NOT P)))",
+            "(((S AND (NOT Q)) OR (NOT P)) AND ((S AND (NOT Q)) OR T))",
+            "((((S AND (NOT Q)) OR (NOT P)) AND T) OR (((S AND (NOT Q)) OR (NOT P)) AND (S AND (NOT Q))))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND (NOT R)) AND (S OR (NOT T)))",
+        "correctTransformedFormula": "((S OR (NOT T)) AND (P AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "((((P AND (NOT R)) OR S) AND (P AND (NOT R))) OR (((P AND (NOT R)) OR S) AND (NOT T)))",
+            "(((P AND (NOT R)) OR S) AND ((P AND (NOT R)) OR (NOT T)))",
+            "(((P AND (NOT R)) OR (NOT T)) AND ((P AND (NOT R)) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND (S OR P))",
+        "correctTransformedFormula": "((Q AND S) OR (Q AND P))",
+        "wrongTransformedFormulas": [
+            "(((Q AND S) AND Q) OR ((Q AND S) AND P))",
+            "((Q OR S) AND (Q OR P))",
+            "((((Q AND S) AND Q) OR (Q AND S)) AND (((Q AND S) AND Q) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((S OR Q) OR (Q AND T))",
+        "correctTransformedFormula": "((Q AND T) OR (S OR Q))",
+        "wrongTransformedFormulas": [
+            "(((S OR Q) AND Q) OR ((S OR Q) AND T))",
+            "((((S OR Q) AND Q) OR T) AND (((S OR Q) AND Q) OR (S OR Q)))",
+            "((((S OR Q) AND Q) OR (S OR Q)) AND (((S OR Q) AND Q) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(R OR ((NOT P) AND (NOT T)))",
+        "correctTransformedFormula": "((R OR (NOT P)) AND (R OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "((R AND (NOT T)) OR (R AND (NOT P)))",
+            "(((R OR (NOT P)) OR R) AND ((R OR (NOT P)) OR (NOT T)))",
+            "((((R OR (NOT P)) OR R) AND (R OR (NOT P))) OR (((R OR (NOT P)) OR R) AND (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND S) OR R)",
+        "correctTransformedFormula": "((R OR P) AND (R OR S))",
+        "wrongTransformedFormulas": [
+            "((R AND P) OR (R AND S))",
+            "(((R AND P) OR R) AND ((R AND P) OR S))",
+            "(((R OR P) OR R) AND ((R OR P) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) AND S) OR (T AND (NOT R)))",
+        "correctTransformedFormula": "((((NOT S) AND S) OR T) AND (((NOT S) AND S) OR (NOT R)))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) AND S) AND T) OR (((NOT S) AND S) AND (NOT R)))",
+            "(((((NOT S) AND S) AND T) OR ((NOT S) AND S)) AND ((((NOT S) AND S) AND T) OR (NOT R)))",
+            "((((NOT S) AND S) AND (NOT R)) OR (((NOT S) AND S) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR (NOT T)) OR (R AND Q))",
+        "correctTransformedFormula": "(((T OR (NOT T)) OR R) AND ((T OR (NOT T)) OR Q))",
+        "wrongTransformedFormulas": [
+            "(((T OR (NOT T)) AND R) OR ((T OR (NOT T)) AND Q))",
+            "((((T OR (NOT T)) AND R) OR (T OR (NOT T))) AND (((T OR (NOT T)) AND R) OR Q))",
+            "(((T OR (NOT T)) AND Q) OR ((T OR (NOT T)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) OR R) AND (S OR (NOT S)))",
+        "correctTransformedFormula": "((((NOT T) OR R) AND (NOT S)) OR (((NOT T) OR R) AND S))",
+        "wrongTransformedFormulas": [
+            "(((((NOT T) OR R) AND S) AND ((NOT T) OR R)) OR ((((NOT T) OR R) AND S) AND (NOT S)))",
+            "(((S OR (NOT S)) OR (NOT T)) AND ((S OR (NOT S)) OR R))",
+            "((((S OR (NOT S)) AND (NOT T)) AND (S OR (NOT S))) OR (((S OR (NOT S)) AND (NOT T)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) OR (S AND T))",
+        "correctTransformedFormula": "(((((NOT Q) OR S) AND (NOT Q)) OR ((NOT Q) OR S)) AND ((((NOT Q) OR S) AND (NOT Q)) OR T))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) AND S) OR ((NOT Q) AND T))",
+            "((((NOT Q) AND S) OR T) AND (((NOT Q) AND S) OR (NOT Q)))",
+            "(((NOT Q) AND T) OR ((NOT Q) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(T AND (Q OR (NOT P)))",
+        "correctTransformedFormula": "((Q OR (NOT P)) AND T)",
+        "wrongTransformedFormulas": [
+            "((T OR Q) AND (T OR (NOT P)))",
+            "(((T OR Q) AND T) OR ((T OR Q) AND (NOT P)))",
+            "((((T AND Q) AND T) OR (T AND Q)) AND (((T AND Q) AND T) OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(P OR ((NOT T) AND Q))",
+        "correctTransformedFormula": "(((NOT T) AND Q) OR P)",
+        "wrongTransformedFormulas": [
+            "((P AND (NOT T)) OR (P AND Q))",
+            "(((P OR (NOT T)) OR P) AND ((P OR (NOT T)) OR Q))",
+            "(((P AND (NOT T)) OR Q) AND ((P AND (NOT T)) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND S) OR T)",
+        "correctTransformedFormula": "((T OR S) AND (T OR S))",
+        "wrongTransformedFormulas": [
+            "(T AND S)",
+            "(((T AND S) OR T) AND ((T AND S) OR S))",
+            "((T AND S) OR (T AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR ((NOT P) AND R))",
+        "correctTransformedFormula": "(((NOT P) AND R) OR T)",
+        "wrongTransformedFormulas": [
+            "(((T AND R) OR T) AND ((T AND R) OR (NOT P)))",
+            "(((T OR (NOT P)) OR T) AND ((T OR (NOT P)) OR R))",
+            "((T AND (NOT P)) OR (T AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) AND (S OR Q))",
+        "correctTransformedFormula": "(((NOT R) AND Q) OR ((NOT R) AND S))",
+        "wrongTransformedFormulas": [
+            "(((NOT R) OR S) AND ((NOT R) OR Q))",
+            "((((NOT R) AND Q) AND (NOT R)) OR (((NOT R) AND Q) AND S))",
+            "((((NOT R) OR S) AND (NOT R)) OR (((NOT R) OR S) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND (T OR P))",
+        "correctTransformedFormula": "((Q AND T) OR (Q AND P))",
+        "wrongTransformedFormulas": [
+            "(((Q AND T) AND Q) OR ((Q AND T) AND P))",
+            "(((Q OR T) AND Q) OR ((Q OR T) AND P))",
+            "((Q OR T) AND (Q OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((S OR S) OR (T AND (NOT Q)))",
+        "correctTransformedFormula": "(((((S OR S) OR T) AND (S OR S)) OR ((S OR S) OR T)) AND ((((S OR S) OR T) AND (S OR S)) OR (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "(((S OR S) AND T) OR ((S OR S) AND (NOT Q)))",
+            "((((S OR S) OR T) OR (NOT Q)) AND (((S OR S) OR T) OR (S OR S)))",
+            "((((S OR S) OR T) OR (S OR S)) AND (((S OR S) OR T) OR (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND (NOT T)) OR (P AND R))",
+        "correctTransformedFormula": "(((P AND R) OR Q) AND ((P AND R) OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((Q AND (NOT T)) AND R) OR ((Q AND (NOT T)) AND P))",
+            "(((P AND R) AND Q) OR ((P AND R) AND (NOT T)))",
+            "(((Q AND (NOT T)) AND P) OR ((Q AND (NOT T)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR (S AND P))",
+        "correctTransformedFormula": "((T OR S) AND (T OR P))",
+        "wrongTransformedFormulas": [
+            "((T AND P) OR (T AND S))",
+            "(((T AND P) OR T) AND ((T AND P) OR S))",
+            "((((T OR S) AND T) AND (T OR S)) OR (((T OR S) AND T) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND S) OR (T AND (NOT S)))",
+        "correctTransformedFormula": "(((P AND S) OR (NOT S)) AND ((P AND S) OR T))",
+        "wrongTransformedFormulas": [
+            "(((P AND S) AND T) OR ((P AND S) AND (NOT S)))",
+            "((((P AND S) AND (NOT S)) OR (P AND S)) AND (((P AND S) AND (NOT S)) OR T))",
+            "((((P AND S) AND T) OR (P AND S)) AND (((P AND S) AND T) OR (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((Q OR (NOT T)) OR ((NOT R) AND (NOT S)))",
+        "correctTransformedFormula": "(((NOT R) AND (NOT S)) OR (Q OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((Q OR (NOT T)) AND (NOT R)) OR ((Q OR (NOT T)) AND (NOT S)))",
+            "(((Q OR (NOT T)) AND (NOT S)) OR ((Q OR (NOT T)) AND (NOT R)))",
+            "((((Q OR (NOT T)) AND (NOT R)) OR (Q OR (NOT T))) AND (((Q OR (NOT T)) AND (NOT R)) OR (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) AND Q) AND (S OR S))",
+        "correctTransformedFormula": "((S OR S) AND ((NOT S) AND Q))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) AND Q) OR S) AND (((NOT S) AND Q) OR S))",
+            "(((NOT S) AND Q) OR S)",
+            "(((((NOT S) AND Q) OR S) AND ((NOT S) AND Q)) OR ((((NOT S) AND Q) OR S) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(Q OR (P AND S))",
+        "correctTransformedFormula": "((Q OR P) AND (Q OR S))",
+        "wrongTransformedFormulas": [
+            "((Q AND S) OR (Q AND P))",
+            "(((Q AND P) OR S) AND ((Q AND P) OR Q))",
+            "((Q AND P) OR (Q AND S))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT P) AND (Q OR Q))",
+        "correctTransformedFormula": "((Q OR Q) AND (NOT P))",
+        "wrongTransformedFormulas": [
+            "(((NOT P) OR Q) AND ((NOT P) OR Q))",
+            "((NOT P) OR Q)",
+            "(((((NOT P) AND Q) OR (NOT P)) OR ((NOT P) AND Q)) AND ((((NOT P) AND Q) OR (NOT P)) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR ((NOT Q) AND S))",
+        "correctTransformedFormula": "((T OR S) AND (T OR (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "(((T AND S) OR T) AND ((T AND S) OR (NOT Q)))",
+            "(((T AND (NOT Q)) OR T) AND ((T AND (NOT Q)) OR S))",
+            "(((T OR (NOT Q)) OR S) AND ((T OR (NOT Q)) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(S OR ((NOT Q) AND T))",
+        "correctTransformedFormula": "((S OR T) AND (S OR (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "((((S OR (NOT Q)) AND S) AND (S OR (NOT Q))) OR (((S OR (NOT Q)) AND S) AND T))",
+            "((S AND T) OR (S AND (NOT Q)))",
+            "((S AND (NOT Q)) OR (S AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) AND (S OR (NOT Q)))",
+        "correctTransformedFormula": "((((NOT R) AND S) OR (NOT R)) AND (((NOT R) AND S) OR (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "((((NOT R) OR (NOT Q)) AND (NOT R)) OR (((NOT R) OR (NOT Q)) AND S))",
+            "(((NOT R) OR S) AND ((NOT R) OR (NOT Q)))",
+            "((((NOT R) OR S) AND (NOT R)) OR (((NOT R) OR S) AND (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) AND (R OR (NOT P)))",
+        "correctTransformedFormula": "((R OR (NOT P)) AND (NOT R))",
+        "wrongTransformedFormulas": [
+            "(((((NOT R) AND R) OR (NOT R)) OR ((NOT R) AND R)) AND ((((NOT R) AND R) OR (NOT R)) OR (NOT P)))",
+            "(((NOT R) OR (NOT P)) AND ((NOT R) OR R))",
+            "((((NOT R) AND R) AND (NOT R)) OR (((NOT R) AND R) AND (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(S OR (T AND P))",
+        "correctTransformedFormula": "((S OR T) AND (S OR P))",
+        "wrongTransformedFormulas": [
+            "(((S OR T) OR S) AND ((S OR T) OR P))",
+            "(((S AND T) OR S) AND ((S AND T) OR P))",
+            "((S AND T) OR (S AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT S) OR (R AND S))",
+        "correctTransformedFormula": "((((NOT S) OR R) AND S) OR (((NOT S) OR R) AND (NOT S)))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) OR S) OR (NOT S)) AND (((NOT S) OR S) OR R))",
+            "((((NOT S) AND R) OR (NOT S)) AND (((NOT S) AND R) OR S))",
+            "(((((NOT S) AND R) OR (NOT S)) AND ((NOT S) AND R)) OR ((((NOT S) AND R) OR (NOT S)) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) OR T) OR (T AND R))",
+        "correctTransformedFormula": "((((NOT Q) OR T) OR T) AND (((NOT Q) OR T) OR R))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) OR T) AND T) OR ((NOT Q) OR T)) AND ((((NOT Q) OR T) AND T) OR R))",
+            "((((NOT Q) OR T) AND T) OR (((NOT Q) OR T) AND R))",
+            "(((((NOT Q) OR T) AND T) OR R) AND ((((NOT Q) OR T) AND T) OR ((NOT Q) OR T)))"
+        ]
+    },
+    {
+        "originalFormula": "(T AND ((NOT T) OR (NOT R)))",
+        "correctTransformedFormula": "(((NOT T) OR (NOT R)) AND T)",
+        "wrongTransformedFormulas": [
+            "((((T AND (NOT T)) OR T) OR (T AND (NOT T))) AND (((T AND (NOT T)) OR T) OR (NOT R)))",
+            "(((T AND (NOT T)) AND T) OR ((T AND (NOT T)) AND (NOT R)))",
+            "(((T OR (NOT T)) AND T) OR ((T OR (NOT T)) AND (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT P) AND R) AND ((NOT R) OR Q))",
+        "correctTransformedFormula": "(((((NOT P) AND R) AND (NOT R)) OR ((NOT P) AND R)) AND ((((NOT P) AND R) AND (NOT R)) OR Q))",
+        "wrongTransformedFormulas": [
+            "((((((NOT P) AND R) OR (NOT R)) AND ((NOT P) AND R)) OR (((NOT P) AND R) OR (NOT R))) AND (((((NOT P) AND R) OR (NOT R)) AND ((NOT P) AND R)) OR Q))",
+            "(((((NOT P) AND R) OR (NOT R)) AND ((NOT P) AND R)) OR ((((NOT P) AND R) OR (NOT R)) AND Q))",
+            "(((((NOT P) AND R) AND (NOT R)) AND ((NOT P) AND R)) OR ((((NOT P) AND R) AND (NOT R)) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) OR T) AND (T AND (NOT P)))",
+        "correctTransformedFormula": "(((T AND (NOT P)) AND T) OR ((T AND (NOT P)) AND (NOT S)))",
+        "wrongTransformedFormulas": [
+            "((((T AND (NOT P)) AND (NOT S)) AND (T AND (NOT P))) OR (((T AND (NOT P)) AND (NOT S)) AND T))",
+            "(((T AND (NOT P)) OR (NOT S)) AND ((T AND (NOT P)) OR T))",
+            "(((T AND (NOT P)) OR T) AND ((T AND (NOT P)) OR (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT P) AND P) OR (Q AND (NOT S)))",
+        "correctTransformedFormula": "(((((NOT P) AND P) OR Q) AND (NOT S)) OR ((((NOT P) AND P) OR Q) AND ((NOT P) AND P)))",
+        "wrongTransformedFormulas": [
+            "((((NOT P) AND P) AND Q) OR (((NOT P) AND P) AND (NOT S)))",
+            "(((((NOT P) AND P) AND Q) OR ((NOT P) AND P)) AND ((((NOT P) AND P) AND Q) OR (NOT S)))",
+            "((((((NOT P) AND P) OR Q) OR ((NOT P) AND P)) AND (((NOT P) AND P) OR Q)) OR (((((NOT P) AND P) OR Q) OR ((NOT P) AND P)) AND (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "(R AND (T OR (NOT S)))",
+        "correctTransformedFormula": "((T OR (NOT S)) AND R)",
+        "wrongTransformedFormulas": [
+            "((R OR T) AND (R OR (NOT S)))",
+            "((R OR (NOT S)) AND (R OR T))",
+            "(((R AND T) AND R) OR ((R AND T) AND (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND (R OR R))",
+        "correctTransformedFormula": "((Q AND R) OR (Q AND R))",
+        "wrongTransformedFormulas": [
+            "(((Q OR R) AND Q) OR ((Q OR R) AND R))",
+            "((Q OR R) AND (Q OR R))",
+            "(Q OR R)"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) OR (S AND T))",
+        "correctTransformedFormula": "((S AND T) OR (NOT Q))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) AND T) OR ((NOT Q) AND S))",
+            "(((NOT Q) AND S) OR ((NOT Q) AND T))",
+            "((((NOT Q) OR S) OR (NOT Q)) AND (((NOT Q) OR S) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR (NOT T)) OR (T AND (NOT Q)))",
+        "correctTransformedFormula": "((T AND (NOT Q)) OR (T OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((T OR (NOT T)) AND T) OR ((T OR (NOT T)) AND (NOT Q)))",
+            "((((T OR (NOT T)) AND T) OR (T OR (NOT T))) AND (((T OR (NOT T)) AND T) OR (NOT Q)))",
+            "(((T OR (NOT T)) AND (NOT Q)) OR ((T OR (NOT T)) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR T) AND (Q OR S))",
+        "correctTransformedFormula": "((((R OR T) AND Q) OR (R OR T)) AND (((R OR T) AND Q) OR S))",
+        "wrongTransformedFormulas": [
+            "(((Q OR S) OR R) AND ((Q OR S) OR T))",
+            "(((R OR T) OR Q) AND ((R OR T) OR S))",
+            "(((((R OR T) AND Q) AND (R OR T)) OR ((R OR T) AND Q)) AND ((((R OR T) AND Q) AND (R OR T)) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) AND (NOT T)) AND (S OR Q))",
+        "correctTransformedFormula": "((S OR Q) AND ((NOT S) AND (NOT T)))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) AND (NOT T)) OR Q) AND (((NOT S) AND (NOT T)) OR S))",
+            "(((((NOT S) AND (NOT T)) OR S) AND ((NOT S) AND (NOT T))) OR ((((NOT S) AND (NOT T)) OR S) AND Q))",
+            "((((((NOT S) AND (NOT T)) AND S) AND ((NOT S) AND (NOT T))) OR (((NOT S) AND (NOT T)) AND S)) AND (((((NOT S) AND (NOT T)) AND S) AND ((NOT S) AND (NOT T))) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR (NOT P)) AND S)",
+        "correctTransformedFormula": "(S AND (T OR (NOT P)))",
+        "wrongTransformedFormulas": [
+            "(((S AND T) AND S) OR ((S AND T) AND (NOT P)))",
+            "(((S OR T) AND S) OR ((S OR T) AND (NOT P)))",
+            "((S OR T) AND (S OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND ((NOT Q) OR (NOT R)))",
+        "correctTransformedFormula": "(((NOT Q) OR (NOT R)) AND Q)",
+        "wrongTransformedFormulas": [
+            "((Q OR (NOT Q)) AND (Q OR (NOT R)))",
+            "((((Q OR (NOT Q)) AND Q) OR (Q OR (NOT Q))) AND (((Q OR (NOT Q)) AND Q) OR (NOT R)))",
+            "(((Q OR (NOT Q)) AND (NOT R)) OR ((Q OR (NOT Q)) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR (Q AND (NOT Q)))",
+        "correctTransformedFormula": "((Q AND (NOT Q)) OR T)",
+        "wrongTransformedFormulas": [
+            "((((T OR Q) OR T) AND (T OR Q)) OR (((T OR Q) OR T) AND (NOT Q)))",
+            "(((T OR (NOT Q)) OR T) AND ((T OR (NOT Q)) OR Q))",
+            "(((T OR Q) OR T) AND ((T OR Q) OR (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR Q) OR (P AND P))",
+        "correctTransformedFormula": "((P AND P) OR (R OR Q))",
+        "wrongTransformedFormulas": [
+            "((R OR Q) AND P)",
+            "(((R OR Q) AND P) OR ((R OR Q) AND P))",
+            "((((R OR Q) AND P) OR (R OR Q)) AND (((R OR Q) AND P) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) OR R) AND (R OR R))",
+        "correctTransformedFormula": "((((NOT T) OR R) AND R) OR (((NOT T) OR R) AND R))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) OR R) OR R) AND (((NOT T) OR R) OR R))",
+            "(((NOT T) OR R) OR R)",
+            "(((((NOT T) OR R) OR R) AND ((NOT T) OR R)) OR ((((NOT T) OR R) OR R) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND P) AND (S OR T))",
+        "correctTransformedFormula": "((S OR T) AND (R AND P))",
+        "wrongTransformedFormulas": [
+            "(((R AND P) OR T) AND ((R AND P) OR S))",
+            "((((R AND P) AND T) AND (R AND P)) OR (((R AND P) AND T) AND S))",
+            "(((R AND P) OR S) AND ((R AND P) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT T) OR ((NOT R) AND T))",
+        "correctTransformedFormula": "(((NOT T) OR (NOT R)) AND ((NOT T) OR T))",
+        "wrongTransformedFormulas": [
+            "(((NOT T) AND (NOT R)) OR ((NOT T) AND T))",
+            "(((NOT T) AND T) OR ((NOT T) AND (NOT R)))",
+            "((((NOT T) OR T) OR (NOT T)) AND (((NOT T) OR T) OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND (T OR T))",
+        "correctTransformedFormula": "((((Q AND T) OR Q) AND (Q AND T)) OR (((Q AND T) OR Q) AND T))",
+        "wrongTransformedFormulas": [
+            "((Q OR T) AND (Q OR T))",
+            "(((Q OR T) AND Q) OR ((Q OR T) AND T))",
+            "((((Q OR T) AND Q) OR (Q OR T)) AND (((Q OR T) AND Q) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) OR S) AND (Q OR P))",
+        "correctTransformedFormula": "((((NOT Q) OR S) AND P) OR (((NOT Q) OR S) AND Q))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) OR S) OR Q) AND ((NOT Q) OR S)) OR ((((NOT Q) OR S) OR Q) AND P))",
+            "((((NOT Q) OR S) OR Q) AND (((NOT Q) OR S) OR P))",
+            "(((((NOT Q) OR S) AND Q) AND ((NOT Q) OR S)) OR ((((NOT Q) OR S) AND Q) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND (NOT T)) AND (T OR R))",
+        "correctTransformedFormula": "((T OR R) AND (Q AND (NOT T)))",
+        "wrongTransformedFormulas": [
+            "((((Q AND (NOT T)) OR T) AND R) OR (((Q AND (NOT T)) OR T) AND (Q AND (NOT T))))",
+            "(((Q AND (NOT T)) OR R) AND ((Q AND (NOT T)) OR T))",
+            "(((Q AND (NOT T)) OR T) AND ((Q AND (NOT T)) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND R) OR (NOT Q))",
+        "correctTransformedFormula": "((NOT Q) OR (T AND R))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) AND T) OR ((NOT Q) AND R))",
+            "((((NOT Q) AND T) OR (NOT Q)) AND (((NOT Q) AND T) OR R))",
+            "(((NOT Q) AND R) OR ((NOT Q) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR Q) OR ((NOT R) AND (NOT Q)))",
+        "correctTransformedFormula": "(((T OR Q) OR (NOT R)) AND ((T OR Q) OR (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "(((T OR Q) AND (NOT Q)) OR ((T OR Q) AND (NOT R)))",
+            "(((((T OR Q) AND (NOT R)) OR (T OR Q)) AND ((T OR Q) AND (NOT R))) OR ((((T OR Q) AND (NOT R)) OR (T OR Q)) AND (NOT Q)))",
+            "(((T OR Q) AND (NOT R)) OR ((T OR Q) AND (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((P OR Q) OR (S AND P))",
+        "correctTransformedFormula": "((S AND P) OR (P OR Q))",
+        "wrongTransformedFormulas": [
+            "((((P OR Q) OR S) OR (P OR Q)) AND (((P OR Q) OR S) OR P))",
+            "(((P OR Q) AND P) OR ((P OR Q) AND S))",
+            "(((P OR Q) AND S) OR ((P OR Q) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND S) OR (S AND T))",
+        "correctTransformedFormula": "(((S AND T) OR R) AND ((S AND T) OR S))",
+        "wrongTransformedFormulas": [
+            "((((R AND S) OR S) OR (R AND S)) AND (((R AND S) OR S) OR T))",
+            "((((S AND T) AND R) OR (S AND T)) AND (((S AND T) AND R) OR S))",
+            "((((R AND S) AND S) OR (R AND S)) AND (((R AND S) AND S) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) OR (S AND S))",
+        "correctTransformedFormula": "((((NOT R) OR S) AND S) OR (((NOT R) OR S) AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((((NOT R) AND S) OR (NOT R)) AND ((NOT R) AND S)) OR ((((NOT R) AND S) OR (NOT R)) AND S))",
+            "((((NOT R) AND S) OR (NOT R)) AND (((NOT R) AND S) OR S))",
+            "(((NOT R) AND S) OR ((NOT R) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR (P AND P))",
+        "correctTransformedFormula": "((T OR P) AND (T OR P))",
+        "wrongTransformedFormulas": [
+            "((T AND P) OR (T AND P))",
+            "(((T AND P) OR T) AND ((T AND P) OR P))",
+            "(((T AND P) OR P) AND ((T AND P) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR (NOT S)) OR (S AND S))",
+        "correctTransformedFormula": "((((R OR (NOT S)) OR S) AND (R OR (NOT S))) OR (((R OR (NOT S)) OR S) AND S))",
+        "wrongTransformedFormulas": [
+            "((R OR (NOT S)) AND S)",
+            "(((R OR (NOT S)) AND S) OR ((R OR (NOT S)) AND S))",
+            "(((((R OR (NOT S)) AND S) OR (R OR (NOT S))) AND ((R OR (NOT S)) AND S)) OR ((((R OR (NOT S)) AND S) OR (R OR (NOT S))) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) AND (NOT P)) AND (P OR Q))",
+        "correctTransformedFormula": "((P OR Q) AND ((NOT T) AND (NOT P)))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND (NOT P)) OR P) AND (((NOT T) AND (NOT P)) OR Q))",
+            "(((((NOT T) AND (NOT P)) AND P) AND ((NOT T) AND (NOT P))) OR ((((NOT T) AND (NOT P)) AND P) AND Q))",
+            "(((((NOT T) AND (NOT P)) AND P) AND Q) OR ((((NOT T) AND (NOT P)) AND P) AND ((NOT T) AND (NOT P))))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) OR ((NOT P) AND T))",
+        "correctTransformedFormula": "(((NOT Q) OR (NOT P)) AND ((NOT Q) OR T))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) OR (NOT P)) OR (NOT Q)) AND ((NOT Q) OR (NOT P))) OR ((((NOT Q) OR (NOT P)) OR (NOT Q)) AND T))",
+            "(((NOT Q) AND (NOT P)) OR ((NOT Q) AND T))",
+            "(((((NOT Q) AND (NOT P)) OR (NOT Q)) AND ((NOT Q) AND (NOT P))) OR ((((NOT Q) AND (NOT P)) OR (NOT Q)) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) AND T) AND ((NOT T) OR P))",
+        "correctTransformedFormula": "(((NOT T) OR P) AND ((NOT Q) AND T))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) AND T) OR P) AND ((NOT Q) AND T)) OR ((((NOT Q) AND T) OR P) AND (NOT T)))",
+            "(((((NOT Q) AND T) OR (NOT T)) AND P) OR ((((NOT Q) AND T) OR (NOT T)) AND ((NOT Q) AND T)))",
+            "((((NOT Q) AND T) OR (NOT T)) AND (((NOT Q) AND T) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR ((NOT S) AND (NOT Q)))",
+        "correctTransformedFormula": "(((NOT S) AND (NOT Q)) OR T)",
+        "wrongTransformedFormulas": [
+            "((T AND (NOT S)) OR (T AND (NOT Q)))",
+            "(((T OR (NOT S)) OR T) AND ((T OR (NOT S)) OR (NOT Q)))",
+            "(((T AND (NOT S)) OR T) AND ((T AND (NOT S)) OR (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) AND T) OR ((NOT R) AND P))",
+        "correctTransformedFormula": "(((NOT R) AND P) OR ((NOT S) AND T))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) AND T) AND (NOT R)) OR (((NOT S) AND T) AND P))",
+            "((((NOT R) AND P) AND (NOT S)) OR (((NOT R) AND P) AND T))",
+            "(((((NOT S) AND T) OR (NOT R)) OR ((NOT S) AND T)) AND ((((NOT S) AND T) OR (NOT R)) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) OR (S AND Q))",
+        "correctTransformedFormula": "((S AND Q) OR (NOT Q))",
+        "wrongTransformedFormulas": [
+            "((((NOT Q) AND S) OR (NOT Q)) AND (((NOT Q) AND S) OR Q))",
+            "((((NOT Q) OR Q) OR (NOT Q)) AND (((NOT Q) OR Q) OR S))",
+            "(((NOT Q) AND S) OR ((NOT Q) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND Q) OR T)",
+        "correctTransformedFormula": "(T OR (Q AND Q))",
+        "wrongTransformedFormulas": [
+            "((T AND Q) OR (T AND Q))",
+            "(T AND Q)",
+            "(((T AND Q) OR T) AND ((T AND Q) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(R AND (Q OR Q))",
+        "correctTransformedFormula": "((Q OR Q) AND R)",
+        "wrongTransformedFormulas": [
+            "(R OR Q)",
+            "(((R OR Q) AND R) OR ((R OR Q) AND Q))",
+            "(Q OR R)"
+        ]
+    },
+    {
+        "originalFormula": "((T AND S) OR (NOT T))",
+        "correctTransformedFormula": "((NOT T) OR (T AND S))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND T) OR (NOT T)) AND (((NOT T) AND T) OR S))",
+            "(((NOT T) AND T) OR ((NOT T) AND S))",
+            "((((NOT T) OR T) OR (NOT T)) AND (((NOT T) OR T) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(Q OR (P AND T))",
+        "correctTransformedFormula": "((P AND T) OR Q)",
+        "wrongTransformedFormulas": [
+            "((Q AND P) OR (Q AND T))",
+            "((Q AND T) OR (Q AND P))",
+            "(((Q AND P) OR Q) AND ((Q AND P) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) OR S) AND (R OR S))",
+        "correctTransformedFormula": "(((R OR S) AND (NOT Q)) OR ((R OR S) AND S))",
+        "wrongTransformedFormulas": [
+            "(((R OR S) OR S) AND ((R OR S) OR (NOT Q)))",
+            "((((NOT Q) OR S) OR R) AND (((NOT Q) OR S) OR S))",
+            "((((((NOT Q) OR S) AND R) AND ((NOT Q) OR S)) OR (((NOT Q) OR S) AND R)) AND (((((NOT Q) OR S) AND R) AND ((NOT Q) OR S)) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(P OR (S AND S))",
+        "correctTransformedFormula": "((S AND S) OR P)",
+        "wrongTransformedFormulas": [
+            "((((P OR S) AND P) AND (P OR S)) OR (((P OR S) AND P) AND S))",
+            "(((P AND S) OR P) AND ((P AND S) OR S))",
+            "((((P AND S) OR P) AND (P AND S)) OR (((P AND S) OR P) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT P) OR (NOT T)) OR (T AND (NOT R)))",
+        "correctTransformedFormula": "((T AND (NOT R)) OR ((NOT P) OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((((NOT P) OR (NOT T)) OR T) OR ((NOT P) OR (NOT T))) AND ((((NOT P) OR (NOT T)) OR T) OR (NOT R)))",
+            "((((((NOT P) OR (NOT T)) OR T) AND ((NOT P) OR (NOT T))) AND (((NOT P) OR (NOT T)) OR T)) OR (((((NOT P) OR (NOT T)) OR T) AND ((NOT P) OR (NOT T))) AND (NOT R)))",
+            "((((NOT P) OR (NOT T)) AND T) OR (((NOT P) OR (NOT T)) AND (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "((P OR (NOT R)) AND (P OR T))",
+        "correctTransformedFormula": "(((P OR T) AND P) OR ((P OR T) AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((P OR (NOT R)) OR P) AND ((P OR (NOT R)) OR T))",
+            "((((P OR (NOT R)) OR P) AND (P OR (NOT R))) OR (((P OR (NOT R)) OR P) AND T))",
+            "(((P OR (NOT R)) OR T) AND ((P OR (NOT R)) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) AND P) AND (S OR (NOT T)))",
+        "correctTransformedFormula": "((((NOT S) AND P) AND S) OR (((NOT S) AND P) AND (NOT T)))",
+        "wrongTransformedFormulas": [
+            "((((((NOT S) AND P) AND S) OR ((NOT S) AND P)) OR (((NOT S) AND P) AND S)) AND (((((NOT S) AND P) AND S) OR ((NOT S) AND P)) OR (NOT T)))",
+            "((((NOT S) AND P) OR (NOT T)) AND (((NOT S) AND P) OR S))",
+            "((((NOT S) AND P) OR S) AND (((NOT S) AND P) OR (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND P) OR (R AND (NOT R)))",
+        "correctTransformedFormula": "((R AND (NOT R)) OR (Q AND P))",
+        "wrongTransformedFormulas": [
+            "(((R AND (NOT R)) AND Q) OR ((R AND (NOT R)) AND P))",
+            "(((R AND (NOT R)) AND P) OR ((R AND (NOT R)) AND Q))",
+            "((((R AND (NOT R)) OR Q) OR (R AND (NOT R))) AND (((R AND (NOT R)) OR Q) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND (NOT R)) OR (NOT S))",
+        "correctTransformedFormula": "((NOT S) OR (Q AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "((((NOT S) OR Q) OR (NOT S)) AND (((NOT S) OR Q) OR (NOT R)))",
+            "(((NOT S) AND Q) OR ((NOT S) AND (NOT R)))",
+            "(((NOT S) AND (NOT R)) OR ((NOT S) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND (NOT R)) OR ((NOT T) AND (NOT P)))",
+        "correctTransformedFormula": "(((P AND (NOT R)) OR (NOT P)) AND ((P AND (NOT R)) OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "(((P AND (NOT R)) AND (NOT T)) OR ((P AND (NOT R)) AND (NOT P)))",
+            "((((P AND (NOT R)) AND (NOT T)) OR (P AND (NOT R))) AND (((P AND (NOT R)) AND (NOT T)) OR (NOT P)))",
+            "(((P AND (NOT R)) AND (NOT P)) OR ((P AND (NOT R)) AND (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND R) OR (Q AND S))",
+        "correctTransformedFormula": "(((S AND R) OR S) AND ((S AND R) OR Q))",
+        "wrongTransformedFormulas": [
+            "(((Q AND S) AND S) OR ((Q AND S) AND R))",
+            "(((S AND R) AND S) OR ((S AND R) AND Q))",
+            "((((S AND R) OR Q) OR (S AND R)) AND (((S AND R) OR Q) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) OR P) OR (P AND P))",
+        "correctTransformedFormula": "((((((NOT T) OR P) OR P) AND ((NOT T) OR P)) OR (((NOT T) OR P) OR P)) AND (((((NOT T) OR P) OR P) AND ((NOT T) OR P)) OR P))",
+        "wrongTransformedFormulas": [
+            "(((((NOT T) OR P) AND P) OR ((NOT T) OR P)) AND ((((NOT T) OR P) AND P) OR P))",
+            "((((NOT T) OR P) AND P) OR (((NOT T) OR P) AND P))",
+            "(((((NOT T) OR P) AND P) OR P) AND ((((NOT T) OR P) AND P) OR ((NOT T) OR P)))"
+        ]
+    },
+    {
+        "originalFormula": "(T AND (S OR (NOT R)))",
+        "correctTransformedFormula": "(((T AND S) OR T) AND ((T AND S) OR (NOT R)))",
+        "wrongTransformedFormulas": [
+            "((T OR S) AND (T OR (NOT R)))",
+            "(((T AND S) AND T) OR ((T AND S) AND (NOT R)))",
+            "((T OR (NOT R)) AND (T OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(S OR (P AND T))",
+        "correctTransformedFormula": "((S OR T) AND (S OR P))",
+        "wrongTransformedFormulas": [
+            "((S AND P) OR (S AND T))",
+            "(((S AND P) OR S) AND ((S AND P) OR T))",
+            "((((S OR P) AND S) AND (S OR P)) OR (((S OR P) AND S) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) AND (S OR T))",
+        "correctTransformedFormula": "(((NOT Q) AND T) OR ((NOT Q) AND S))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) OR S) AND (NOT Q)) OR ((NOT Q) OR S)) AND ((((NOT Q) OR S) AND (NOT Q)) OR T))",
+            "((((NOT Q) AND T) AND (NOT Q)) OR (((NOT Q) AND T) AND S))",
+            "(((NOT Q) OR S) AND ((NOT Q) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT T) OR ((NOT Q) AND S))",
+        "correctTransformedFormula": "(((NOT T) OR (NOT Q)) AND ((NOT T) OR S))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND (NOT Q)) OR (NOT T)) AND (((NOT T) AND (NOT Q)) OR S))",
+            "((((NOT T) OR (NOT Q)) OR (NOT T)) AND (((NOT T) OR (NOT Q)) OR S))",
+            "(((NOT T) AND (NOT Q)) OR ((NOT T) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) OR ((NOT S) AND R))",
+        "correctTransformedFormula": "(((NOT R) OR (NOT S)) AND ((NOT R) OR R))",
+        "wrongTransformedFormulas": [
+            "((((NOT R) AND (NOT S)) OR (NOT R)) AND (((NOT R) AND (NOT S)) OR R))",
+            "(((NOT R) AND R) OR ((NOT R) AND (NOT S)))",
+            "(((NOT R) AND (NOT S)) OR ((NOT R) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND (NOT R)) OR (NOT P))",
+        "correctTransformedFormula": "((NOT P) OR (P AND (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((NOT P) AND (NOT R)) OR ((NOT P) AND P))",
+            "(((NOT P) AND P) OR ((NOT P) AND (NOT R)))",
+            "((((NOT P) AND P) OR (NOT P)) AND (((NOT P) AND P) OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "((P OR (NOT S)) AND (S OR Q))",
+        "correctTransformedFormula": "(((P OR (NOT S)) AND Q) OR ((P OR (NOT S)) AND S))",
+        "wrongTransformedFormulas": [
+            "((((P OR (NOT S)) OR S) AND (P OR (NOT S))) OR (((P OR (NOT S)) OR S) AND Q))",
+            "(((P OR (NOT S)) OR S) AND ((P OR (NOT S)) OR Q))",
+            "(((((P OR (NOT S)) AND S) AND (P OR (NOT S))) OR ((P OR (NOT S)) AND S)) AND ((((P OR (NOT S)) AND S) AND (P OR (NOT S))) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND Q) AND ((NOT P) OR (NOT Q)))",
+        "correctTransformedFormula": "(((S AND Q) AND (NOT P)) OR ((S AND Q) AND (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "((((S AND Q) AND (NOT Q)) AND (S AND Q)) OR (((S AND Q) AND (NOT Q)) AND (NOT P)))",
+            "(((S AND Q) OR (NOT P)) AND ((S AND Q) OR (NOT Q)))",
+            "((((S AND Q) OR (NOT P)) AND (S AND Q)) OR (((S AND Q) OR (NOT P)) AND (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) OR (P AND P))",
+        "correctTransformedFormula": "(((NOT Q) OR P) AND ((NOT Q) OR P))",
+        "wrongTransformedFormulas": [
+            "((NOT Q) AND P)",
+            "((((NOT Q) AND P) OR P) AND (((NOT Q) AND P) OR (NOT Q)))",
+            "(((NOT Q) AND P) OR ((NOT Q) AND P))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND R) OR (NOT T))",
+        "correctTransformedFormula": "(((NOT T) OR Q) AND ((NOT T) OR R))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND Q) OR (NOT T)) AND (((NOT T) AND Q) OR R))",
+            "(((NOT T) AND Q) OR ((NOT T) AND R))",
+            "((((NOT T) OR Q) OR (NOT T)) AND (((NOT T) OR Q) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((Q OR P) AND ((NOT S) OR T))",
+        "correctTransformedFormula": "((((Q OR P) AND (NOT S)) OR (Q OR P)) AND (((Q OR P) AND (NOT S)) OR T))",
+        "wrongTransformedFormulas": [
+            "((((Q OR P) AND (NOT S)) AND (Q OR P)) OR (((Q OR P) AND (NOT S)) AND T))",
+            "(((Q OR P) OR (NOT S)) AND ((Q OR P) OR T))",
+            "((((NOT S) OR T) OR Q) AND (((NOT S) OR T) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND S) AND (T OR S))",
+        "correctTransformedFormula": "(((R AND S) AND T) OR ((R AND S) AND S))",
+        "wrongTransformedFormulas": [
+            "(((((R AND S) OR T) AND (R AND S)) OR ((R AND S) OR T)) AND ((((R AND S) OR T) AND (R AND S)) OR S))",
+            "(((R AND S) OR T) AND ((R AND S) OR S))",
+            "((((R AND S) AND T) AND (R AND S)) OR (((R AND S) AND T) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR (NOT S)) AND ((NOT P) OR R))",
+        "correctTransformedFormula": "(((R OR (NOT S)) AND (NOT P)) OR ((R OR (NOT S)) AND R))",
+        "wrongTransformedFormulas": [
+            "((((R OR (NOT S)) AND (NOT P)) AND (R OR (NOT S))) OR (((R OR (NOT S)) AND (NOT P)) AND R))",
+            "((((NOT P) OR R) OR R) AND (((NOT P) OR R) OR (NOT S)))",
+            "(((((R OR (NOT S)) AND (NOT P)) AND (R OR (NOT S))) OR ((R OR (NOT S)) AND (NOT P))) AND ((((R OR (NOT S)) AND (NOT P)) AND (R OR (NOT S))) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(S AND (Q OR (NOT P)))",
+        "correctTransformedFormula": "((Q OR (NOT P)) AND S)",
+        "wrongTransformedFormulas": [
+            "(((S AND (NOT P)) AND S) OR ((S AND (NOT P)) AND Q))",
+            "((S OR Q) AND (S OR (NOT P)))",
+            "((S OR (NOT P)) AND (S OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) OR (NOT S)) AND (NOT Q))",
+        "correctTransformedFormula": "((NOT Q) AND ((NOT T) OR (NOT S)))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) OR (NOT T)) AND ((NOT Q) OR (NOT S)))",
+            "(((NOT Q) OR (NOT S)) AND ((NOT Q) OR (NOT T)))",
+            "((((NOT Q) AND (NOT T)) AND (NOT Q)) OR (((NOT Q) AND (NOT T)) AND (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND R) OR (P AND Q))",
+        "correctTransformedFormula": "((((T AND R) OR P) AND (T AND R)) OR (((T AND R) OR P) AND Q))",
+        "wrongTransformedFormulas": [
+            "((((T AND R) OR P) OR (T AND R)) AND (((T AND R) OR P) OR Q))",
+            "(((T AND R) AND P) OR ((T AND R) AND Q))",
+            "(((P AND Q) AND T) OR ((P AND Q) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND R) OR ((NOT T) AND P))",
+        "correctTransformedFormula": "(((R AND R) OR (NOT T)) AND ((R AND R) OR P))",
+        "wrongTransformedFormulas": [
+            "(((R AND R) AND P) OR ((R AND R) AND (NOT T)))",
+            "(((R AND R) AND (NOT T)) OR ((R AND R) AND P))",
+            "((((NOT T) AND P) AND R) OR (((NOT T) AND P) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT T) OR (R AND S))",
+        "correctTransformedFormula": "((R AND S) OR (NOT T))",
+        "wrongTransformedFormulas": [
+            "(((NOT T) AND R) OR ((NOT T) AND S))",
+            "((((NOT T) OR R) OR (NOT T)) AND (((NOT T) OR R) OR S))",
+            "(((NOT T) AND S) OR ((NOT T) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND (NOT P)) AND (R OR P))",
+        "correctTransformedFormula": "((((T AND (NOT P)) AND R) OR (T AND (NOT P))) AND (((T AND (NOT P)) AND R) OR P))",
+        "wrongTransformedFormulas": [
+            "((((T AND (NOT P)) OR R) AND (T AND (NOT P))) OR (((T AND (NOT P)) OR R) AND P))",
+            "(((T AND (NOT P)) OR R) AND ((T AND (NOT P)) OR P))",
+            "(((T AND (NOT P)) OR P) AND ((T AND (NOT P)) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(T AND ((NOT Q) OR (NOT P)))",
+        "correctTransformedFormula": "((T AND (NOT Q)) OR (T AND (NOT P)))",
+        "wrongTransformedFormulas": [
+            "((T OR (NOT Q)) AND (T OR (NOT P)))",
+            "((((T OR (NOT Q)) AND T) OR (T OR (NOT Q))) AND (((T OR (NOT Q)) AND T) OR (NOT P)))",
+            "(((T OR (NOT Q)) AND T) OR ((T OR (NOT Q)) AND (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) AND (NOT Q)) OR ((NOT P) AND T))",
+        "correctTransformedFormula": "((((NOT P) AND T) OR (NOT T)) AND (((NOT P) AND T) OR (NOT Q)))",
+        "wrongTransformedFormulas": [
+            "(((((NOT T) AND (NOT Q)) AND (NOT P)) OR ((NOT T) AND (NOT Q))) AND ((((NOT T) AND (NOT Q)) AND (NOT P)) OR T))",
+            "(((((NOT P) AND T) AND (NOT T)) OR ((NOT P) AND T)) AND ((((NOT P) AND T) AND (NOT T)) OR (NOT Q)))",
+            "((((NOT T) AND (NOT Q)) AND (NOT P)) OR (((NOT T) AND (NOT Q)) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR R) AND (Q OR (NOT P)))",
+        "correctTransformedFormula": "(((Q OR (NOT P)) AND T) OR ((Q OR (NOT P)) AND R))",
+        "wrongTransformedFormulas": [
+            "((((T OR R) OR Q) AND (T OR R)) OR (((T OR R) OR Q) AND (NOT P)))",
+            "(((Q OR (NOT P)) OR R) AND ((Q OR (NOT P)) OR T))",
+            "(((T OR R) OR Q) AND ((T OR R) OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "(S AND (Q OR (NOT S)))",
+        "correctTransformedFormula": "((S AND (NOT S)) OR (S AND Q))",
+        "wrongTransformedFormulas": [
+            "((S OR Q) AND (S OR (NOT S)))",
+            "((S OR (NOT S)) AND (S OR Q))",
+            "(((S OR Q) AND S) OR ((S OR Q) AND (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) AND S) AND (S OR Q))",
+        "correctTransformedFormula": "((S OR Q) AND ((NOT T) AND S))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) AND S) OR Q) AND (((NOT T) AND S) OR S))",
+            "((((NOT T) AND S) OR S) AND (((NOT T) AND S) OR Q))",
+            "(((((NOT T) AND S) OR S) AND ((NOT T) AND S)) OR ((((NOT T) AND S) OR S) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND R) AND ((NOT S) OR P))",
+        "correctTransformedFormula": "(((R AND R) AND (NOT S)) OR ((R AND R) AND P))",
+        "wrongTransformedFormulas": [
+            "(((R AND R) OR (NOT S)) AND ((R AND R) OR P))",
+            "((((R AND R) OR (NOT S)) AND P) OR (((R AND R) OR (NOT S)) AND (R AND R)))",
+            "(((R AND R) OR P) AND ((R AND R) OR (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((Q OR (NOT S)) AND S)",
+        "correctTransformedFormula": "(S AND (Q OR (NOT S)))",
+        "wrongTransformedFormulas": [
+            "((S OR Q) AND (S OR (NOT S)))",
+            "((S OR (NOT S)) AND (S OR Q))",
+            "(((S OR Q) AND S) OR ((S OR Q) AND (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR (NOT P)) OR (P AND S))",
+        "correctTransformedFormula": "((((R OR (NOT P)) OR P) AND (R OR (NOT P))) OR (((R OR (NOT P)) OR P) AND S))",
+        "wrongTransformedFormulas": [
+            "(((R OR (NOT P)) AND S) OR ((R OR (NOT P)) AND P))",
+            "(((R OR (NOT P)) AND P) OR ((R OR (NOT P)) AND S))",
+            "((((R OR (NOT P)) OR P) OR (R OR (NOT P))) AND (((R OR (NOT P)) OR P) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(P OR (R AND Q))",
+        "correctTransformedFormula": "((P OR Q) AND (P OR R))",
+        "wrongTransformedFormulas": [
+            "((P AND R) OR (P AND Q))",
+            "((P AND Q) OR (P AND R))",
+            "(((P AND Q) OR P) AND ((P AND Q) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR (NOT P)) OR (R AND (NOT T)))",
+        "correctTransformedFormula": "(((R OR (NOT P)) OR R) AND ((R OR (NOT P)) OR (NOT T)))",
+        "wrongTransformedFormulas": [
+            "((((R OR (NOT P)) AND R) OR (R OR (NOT P))) AND (((R OR (NOT P)) AND R) OR (NOT T)))",
+            "(((R OR (NOT P)) AND R) OR ((R OR (NOT P)) AND (NOT T)))",
+            "(((R OR (NOT P)) AND (NOT T)) OR ((R OR (NOT P)) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR T) OR (P AND (NOT T)))",
+        "correctTransformedFormula": "((P AND (NOT T)) OR (T OR T))",
+        "wrongTransformedFormulas": [
+            "(((T OR T) AND P) OR ((T OR T) AND (NOT T)))",
+            "((((T OR T) AND P) OR (T OR T)) AND (((T OR T) AND P) OR (NOT T)))",
+            "((((T OR T) AND P) OR (NOT T)) AND (((T OR T) AND P) OR (T OR T)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT R) AND (NOT P)) OR (P OR T))",
+        "correctTransformedFormula": "(((P OR T) OR (NOT R)) AND ((P OR T) OR (NOT P)))",
+        "wrongTransformedFormulas": [
+            "(((P OR T) AND (NOT R)) OR ((P OR T) AND (NOT P)))",
+            "(((P OR T) AND (NOT P)) OR ((P OR T) AND (NOT R)))",
+            "((((P OR T) AND (NOT R)) OR (P OR T)) AND (((P OR T) AND (NOT R)) OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT T) AND (P OR R))",
+        "correctTransformedFormula": "(((NOT T) AND P) OR ((NOT T) AND R))",
+        "wrongTransformedFormulas": [
+            "(((((NOT T) AND P) AND (NOT T)) OR ((NOT T) AND P)) AND ((((NOT T) AND P) AND (NOT T)) OR R))",
+            "(((NOT T) OR P) AND ((NOT T) OR R))",
+            "((((NOT T) OR P) AND (NOT T)) OR (((NOT T) OR P) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) AND Q) OR ((NOT P) AND T))",
+        "correctTransformedFormula": "((((NOT P) AND T) OR (NOT Q)) AND (((NOT P) AND T) OR Q))",
+        "wrongTransformedFormulas": [
+            "((((NOT Q) AND Q) AND (NOT P)) OR (((NOT Q) AND Q) AND T))",
+            "((((NOT Q) AND Q) AND T) OR (((NOT Q) AND Q) AND (NOT P)))",
+            "((((((NOT Q) AND Q) OR (NOT P)) AND ((NOT Q) AND Q)) AND (((NOT Q) AND Q) OR (NOT P))) OR (((((NOT Q) AND Q) OR (NOT P)) AND ((NOT Q) AND Q)) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT Q) AND S) AND ((NOT P) OR (NOT T)))",
+        "correctTransformedFormula": "(((NOT P) OR (NOT T)) AND ((NOT Q) AND S))",
+        "wrongTransformedFormulas": [
+            "(((((NOT Q) AND S) OR (NOT P)) AND ((NOT Q) AND S)) OR ((((NOT Q) AND S) OR (NOT P)) AND (NOT T)))",
+            "(((((NOT Q) AND S) OR (NOT P)) AND (NOT T)) OR ((((NOT Q) AND S) OR (NOT P)) AND ((NOT Q) AND S)))",
+            "((((NOT Q) AND S) OR (NOT T)) AND (((NOT Q) AND S) OR (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT S) OR ((NOT T) AND R))",
+        "correctTransformedFormula": "(((NOT S) OR (NOT T)) AND ((NOT S) OR R))",
+        "wrongTransformedFormulas": [
+            "(((NOT S) AND (NOT T)) OR ((NOT S) AND R))",
+            "(((NOT S) AND R) OR ((NOT S) AND (NOT T)))",
+            "((((NOT S) OR (NOT T)) OR (NOT S)) AND (((NOT S) OR (NOT T)) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT T) OR P) OR (S AND (NOT Q)))",
+        "correctTransformedFormula": "((((NOT T) OR P) OR (NOT Q)) AND (((NOT T) OR P) OR S))",
+        "wrongTransformedFormulas": [
+            "((((NOT T) OR P) AND S) OR (((NOT T) OR P) AND (NOT Q)))",
+            "(((((NOT T) OR P) AND S) OR (NOT Q)) AND ((((NOT T) OR P) AND S) OR ((NOT T) OR P)))",
+            "((((NOT T) OR P) AND (NOT Q)) OR (((NOT T) OR P) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND (NOT R)) AND (P OR R))",
+        "correctTransformedFormula": "(((Q AND (NOT R)) AND P) OR ((Q AND (NOT R)) AND R))",
+        "wrongTransformedFormulas": [
+            "(((Q AND (NOT R)) OR P) AND ((Q AND (NOT R)) OR R))",
+            "((((Q AND (NOT R)) OR R) AND (Q AND (NOT R))) OR (((Q AND (NOT R)) OR R) AND P))",
+            "(((((Q AND (NOT R)) OR P) AND (Q AND (NOT R))) OR ((Q AND (NOT R)) OR P)) AND ((((Q AND (NOT R)) OR P) AND (Q AND (NOT R))) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND Q) OR ((NOT Q) OR S))",
+        "correctTransformedFormula": "((((NOT Q) OR S) OR T) AND (((NOT Q) OR S) OR Q))",
+        "wrongTransformedFormulas": [
+            "((((NOT Q) OR S) AND T) OR (((NOT Q) OR S) AND Q))",
+            "((((NOT Q) OR S) AND Q) OR (((NOT Q) OR S) AND T))",
+            "(((((NOT Q) OR S) AND T) OR ((NOT Q) OR S)) AND ((((NOT Q) OR S) AND T) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(P AND ((NOT R) OR T))",
+        "correctTransformedFormula": "((P AND (NOT R)) OR (P AND T))",
+        "wrongTransformedFormulas": [
+            "((P OR T) AND (P OR (NOT R)))",
+            "(((P AND (NOT R)) AND T) OR ((P AND (NOT R)) AND P))",
+            "(((P AND (NOT R)) AND P) OR ((P AND (NOT R)) AND T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) AND ((NOT S) OR T))",
+        "correctTransformedFormula": "(((NOT S) OR T) AND (NOT R))",
+        "wrongTransformedFormulas": [
+            "(((NOT R) OR (NOT S)) AND ((NOT R) OR T))",
+            "((((NOT R) OR (NOT S)) AND (NOT R)) OR (((NOT R) OR (NOT S)) AND T))",
+            "(((((NOT R) AND (NOT S)) AND (NOT R)) OR ((NOT R) AND (NOT S))) AND ((((NOT R) AND (NOT S)) AND (NOT R)) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) AND (S OR T))",
+        "correctTransformedFormula": "((((NOT R) AND S) OR (NOT R)) AND (((NOT R) AND S) OR T))",
+        "wrongTransformedFormulas": [
+            "(((NOT R) OR T) AND ((NOT R) OR S))",
+            "((((NOT R) AND S) AND (NOT R)) OR (((NOT R) AND S) AND T))",
+            "(((NOT R) OR S) AND ((NOT R) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND S) OR R)",
+        "correctTransformedFormula": "(R OR (Q AND S))",
+        "wrongTransformedFormulas": [
+            "((R AND S) OR (R AND Q))",
+            "((R AND Q) OR (R AND S))",
+            "(((R AND Q) OR R) AND ((R AND Q) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(R AND (P OR P))",
+        "correctTransformedFormula": "((P OR P) AND R)",
+        "wrongTransformedFormulas": [
+            "(((R OR P) AND R) OR ((R OR P) AND P))",
+            "((R OR P) AND (R OR P))",
+            "((((R AND P) OR R) OR (R AND P)) AND (((R AND P) OR R) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "(S AND (P OR (NOT T)))",
+        "correctTransformedFormula": "((S AND P) OR (S AND (NOT T)))",
+        "wrongTransformedFormulas": [
+            "((S OR P) AND (S OR (NOT T)))",
+            "(((S OR (NOT T)) AND S) OR ((S OR (NOT T)) AND P))",
+            "(((S AND P) AND S) OR ((S AND P) AND (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND Q) OR S)",
+        "correctTransformedFormula": "(S OR (R AND Q))",
+        "wrongTransformedFormulas": [
+            "((S AND R) OR (S AND Q))",
+            "(((S OR R) OR S) AND ((S OR R) OR Q))",
+            "(((S AND R) OR S) AND ((S AND R) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT P) OR S) AND ((NOT R) OR P))",
+        "correctTransformedFormula": "((((NOT R) OR P) AND S) OR (((NOT R) OR P) AND (NOT P)))",
+        "wrongTransformedFormulas": [
+            "(((((NOT P) OR S) OR (NOT R)) AND ((NOT P) OR S)) OR ((((NOT P) OR S) OR (NOT R)) AND P))",
+            "((((NOT R) OR P) OR (NOT P)) AND (((NOT R) OR P) OR S))",
+            "(((((NOT P) OR S) OR P) AND ((NOT P) OR S)) OR ((((NOT P) OR S) OR P) AND (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT R) OR ((NOT P) AND R))",
+        "correctTransformedFormula": "(((NOT R) OR (NOT P)) AND ((NOT R) OR R))",
+        "wrongTransformedFormulas": [
+            "(((NOT R) AND (NOT P)) OR ((NOT R) AND R))",
+            "((((NOT R) AND (NOT P)) OR (NOT R)) AND (((NOT R) AND (NOT P)) OR R))",
+            "(((NOT R) AND R) OR ((NOT R) AND (NOT P)))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND S) OR (NOT S))",
+        "correctTransformedFormula": "(((NOT S) OR P) AND ((NOT S) OR S))",
+        "wrongTransformedFormulas": [
+            "(((NOT S) AND S) OR ((NOT S) AND P))",
+            "((((NOT S) AND P) OR (NOT S)) AND (((NOT S) AND P) OR S))",
+            "(((NOT S) AND P) OR ((NOT S) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT Q) AND (Q OR S))",
+        "correctTransformedFormula": "(((NOT Q) AND S) OR ((NOT Q) AND Q))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) OR Q) AND ((NOT Q) OR S))",
+            "(((NOT Q) OR S) AND ((NOT Q) OR Q))",
+            "((((NOT Q) AND Q) AND (NOT Q)) OR (((NOT Q) AND Q) AND S))"
+        ]
+    },
+    {
+        "originalFormula": "((NOT S) OR (R AND (NOT Q)))",
+        "correctTransformedFormula": "(((NOT S) OR (NOT Q)) AND ((NOT S) OR R))",
+        "wrongTransformedFormulas": [
+            "(((NOT S) AND R) OR ((NOT S) AND (NOT Q)))",
+            "((((NOT S) OR (NOT Q)) OR (NOT S)) AND (((NOT S) OR (NOT Q)) OR R))",
+            "((((NOT S) AND R) OR (NOT S)) AND (((NOT S) AND R) OR (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((S OR Q) AND (S OR (NOT S)))",
+        "correctTransformedFormula": "(((S OR Q) AND (NOT S)) OR ((S OR Q) AND S))",
+        "wrongTransformedFormulas": [
+            "((((S OR Q) AND (NOT S)) AND (S OR Q)) OR (((S OR Q) AND (NOT S)) AND S))",
+            "(((S OR (NOT S)) OR Q) AND ((S OR (NOT S)) OR S))",
+            "((((S OR (NOT S)) AND S) AND (S OR (NOT S))) OR (((S OR (NOT S)) AND S) AND Q))"
+        ]
+    },
+    {
+        "originalFormula": "((T AND P) OR (R AND (NOT P)))",
+        "correctTransformedFormula": "((R AND (NOT P)) OR (T AND P))",
+        "wrongTransformedFormulas": [
+            "(((T AND P) AND R) OR ((T AND P) AND (NOT P)))",
+            "((((T AND P) AND R) OR (T AND P)) AND (((T AND P) AND R) OR (NOT P)))",
+            "(((T AND P) AND (NOT P)) OR ((T AND P) AND R))"
+        ]
+    },
+    {
+        "originalFormula": "(Q AND (T OR T))",
+        "correctTransformedFormula": "(Q AND T)",
+        "wrongTransformedFormulas": [
+            "((Q OR T) AND (Q OR T))",
+            "(((Q OR T) AND T) OR ((Q OR T) AND Q))",
+            "((((Q OR T) AND Q) OR (Q OR T)) AND (((Q OR T) AND Q) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND (NOT R)) AND ((NOT Q) OR P))",
+        "correctTransformedFormula": "(((Q AND (NOT R)) AND (NOT Q)) OR ((Q AND (NOT R)) AND P))",
+        "wrongTransformedFormulas": [
+            "(((((Q AND (NOT R)) AND (NOT Q)) OR (Q AND (NOT R))) OR ((Q AND (NOT R)) AND (NOT Q))) AND ((((Q AND (NOT R)) AND (NOT Q)) OR (Q AND (NOT R))) OR P))",
+            "((((Q AND (NOT R)) OR (NOT Q)) AND P) OR (((Q AND (NOT R)) OR (NOT Q)) AND (Q AND (NOT R))))",
+            "(((Q AND (NOT R)) OR (NOT Q)) AND ((Q AND (NOT R)) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((R OR T) OR (S AND (NOT Q)))",
+        "correctTransformedFormula": "((S AND (NOT Q)) OR (R OR T))",
+        "wrongTransformedFormulas": [
+            "(((R OR T) AND (NOT Q)) OR ((R OR T) AND S))",
+            "((((R OR T) OR S) OR (R OR T)) AND (((R OR T) OR S) OR (NOT Q)))",
+            "(((R OR T) AND S) OR ((R OR T) AND (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) AND S) OR ((NOT R) AND R))",
+        "correctTransformedFormula": "(((((NOT R) AND R) OR (NOT S)) AND ((NOT R) AND R)) OR ((((NOT R) AND R) OR (NOT S)) AND S))",
+        "wrongTransformedFormulas": [
+            "((((((NOT S) AND S) OR (NOT R)) OR ((NOT S) AND S)) AND (((NOT S) AND S) OR (NOT R))) OR (((((NOT S) AND S) OR (NOT R)) OR ((NOT S) AND S)) AND R))",
+            "(((((NOT R) AND R) OR (NOT S)) OR ((NOT R) AND R)) AND ((((NOT R) AND R) OR (NOT S)) OR S))",
+            "(((((NOT S) AND S) OR (NOT R)) OR R) AND ((((NOT S) AND S) OR (NOT R)) OR ((NOT S) AND S)))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND (NOT Q)) AND (T OR T))",
+        "correctTransformedFormula": "((R AND (NOT Q)) AND T)",
+        "wrongTransformedFormulas": [
+            "((R AND (NOT Q)) OR T)",
+            "((((R AND (NOT Q)) OR T) AND (R AND (NOT Q))) OR (((R AND (NOT Q)) OR T) AND T))",
+            "((((R AND (NOT Q)) OR T) AND T) OR (((R AND (NOT Q)) OR T) AND (R AND (NOT Q))))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND (NOT R)) AND (T OR T))",
+        "correctTransformedFormula": "(((S AND (NOT R)) AND T) OR ((S AND (NOT R)) AND T))",
+        "wrongTransformedFormulas": [
+            "((S AND (NOT R)) OR T)",
+            "((((S AND (NOT R)) OR T) AND (S AND (NOT R))) OR (((S AND (NOT R)) OR T) AND T))",
+            "(((S AND (NOT R)) OR T) AND ((S AND (NOT R)) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((R AND P) AND ((NOT P) OR (NOT R)))",
+        "correctTransformedFormula": "(((R AND P) AND (NOT R)) OR ((R AND P) AND (NOT P)))",
+        "wrongTransformedFormulas": [
+            "(((R AND P) OR (NOT R)) AND ((R AND P) OR (NOT P)))",
+            "((((R AND P) OR (NOT P)) AND (R AND P)) OR (((R AND P) OR (NOT P)) AND (NOT R)))",
+            "(((R AND P) OR (NOT P)) AND ((R AND P) OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND T) AND (Q OR P))",
+        "correctTransformedFormula": "(((P AND T) AND Q) OR ((P AND T) AND P))",
+        "wrongTransformedFormulas": [
+            "((((P AND T) OR P) AND (P AND T)) OR (((P AND T) OR P) AND Q))",
+            "((((P AND T) AND Q) AND (P AND T)) OR (((P AND T) AND Q) AND P))",
+            "(((P AND T) OR Q) AND ((P AND T) OR P))"
+        ]
+    },
+    {
+        "originalFormula": "((Q OR R) OR ((NOT P) AND Q))",
+        "correctTransformedFormula": "(((Q OR R) OR Q) AND ((Q OR R) OR (NOT P)))",
+        "wrongTransformedFormulas": [
+            "((((Q OR R) AND Q) OR (Q OR R)) AND (((Q OR R) AND Q) OR (NOT P)))",
+            "(((Q OR R) AND Q) OR ((Q OR R) AND (NOT P)))",
+            "((((Q OR R) AND (NOT P)) OR (Q OR R)) AND (((Q OR R) AND (NOT P)) OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "((T OR Q) AND ((NOT R) OR (NOT P)))",
+        "correctTransformedFormula": "(((NOT R) OR (NOT P)) AND (T OR Q))",
+        "wrongTransformedFormulas": [
+            "((((T OR Q) AND (NOT R)) AND (T OR Q)) OR (((T OR Q) AND (NOT R)) AND (NOT P)))",
+            "(((T OR Q) OR (NOT R)) AND ((T OR Q) OR (NOT P)))",
+            "(((T OR Q) OR (NOT P)) AND ((T OR Q) OR (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) OR (NOT R)) AND (NOT Q))",
+        "correctTransformedFormula": "((NOT Q) AND ((NOT S) OR (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((NOT Q) OR (NOT S)) AND ((NOT Q) OR (NOT R)))",
+            "((((NOT Q) AND (NOT S)) AND (NOT Q)) OR (((NOT Q) AND (NOT S)) AND (NOT R)))",
+            "((((NOT Q) OR (NOT S)) AND (NOT Q)) OR (((NOT Q) OR (NOT S)) AND (NOT R)))"
+        ]
+    },
+    {
+        "originalFormula": "(Q OR (R AND R))",
+        "correctTransformedFormula": "((R AND R) OR Q)",
+        "wrongTransformedFormulas": [
+            "((Q AND R) OR (Q AND R))",
+            "(Q AND R)",
+            "(((Q AND R) OR Q) AND ((Q AND R) OR R))"
+        ]
+    },
+    {
+        "originalFormula": "(P AND (S OR Q))",
+        "correctTransformedFormula": "((S OR Q) AND P)",
+        "wrongTransformedFormulas": [
+            "(((P AND S) AND P) OR ((P AND S) AND Q))",
+            "(((P OR S) AND P) OR ((P OR S) AND Q))",
+            "((P OR S) AND (P OR Q))"
+        ]
+    },
+    {
+        "originalFormula": "(T OR (Q AND (NOT Q)))",
+        "correctTransformedFormula": "((Q AND (NOT Q)) OR T)",
+        "wrongTransformedFormulas": [
+            "((((T OR Q) OR T) AND (T OR Q)) OR (((T OR Q) OR T) AND (NOT Q)))",
+            "(((T OR Q) OR T) AND ((T OR Q) OR (NOT Q)))",
+            "(((T OR Q) OR (NOT Q)) AND ((T OR Q) OR T))"
+        ]
+    },
+    {
+        "originalFormula": "((P AND (NOT S)) AND (Q OR S))",
+        "correctTransformedFormula": "(((P AND (NOT S)) AND Q) OR ((P AND (NOT S)) AND S))",
+        "wrongTransformedFormulas": [
+            "(((P AND (NOT S)) OR S) AND ((P AND (NOT S)) OR Q))",
+            "((((P AND (NOT S)) AND S) AND (P AND (NOT S))) OR (((P AND (NOT S)) AND S) AND Q))",
+            "(((P AND (NOT S)) OR Q) AND ((P AND (NOT S)) OR S))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT P) AND (NOT S)) OR ((NOT S) AND P))",
+        "correctTransformedFormula": "((((NOT P) AND (NOT S)) OR (NOT S)) AND (((NOT P) AND (NOT S)) OR P))",
+        "wrongTransformedFormulas": [
+            "((((NOT P) AND (NOT S)) AND P) OR (((NOT P) AND (NOT S)) AND (NOT S)))",
+            "((((NOT P) AND (NOT S)) AND (NOT S)) OR (((NOT P) AND (NOT S)) AND P))",
+            "(((((NOT S) AND P) AND (NOT P)) OR ((NOT S) AND P)) AND ((((NOT S) AND P) AND (NOT P)) OR (NOT S)))"
+        ]
+    },
+    {
+        "originalFormula": "((Q AND T) OR ((NOT R) AND (NOT Q)))",
+        "correctTransformedFormula": "(((Q AND T) OR (NOT Q)) AND ((Q AND T) OR (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((((NOT R) AND (NOT Q)) AND Q) OR ((NOT R) AND (NOT Q))) AND ((((NOT R) AND (NOT Q)) AND Q) OR T))",
+            "(((((NOT R) AND (NOT Q)) OR Q) OR ((NOT R) AND (NOT Q))) AND ((((NOT R) AND (NOT Q)) OR Q) OR T))",
+            "(((Q AND T) AND (NOT R)) OR ((Q AND T) AND (NOT Q)))"
+        ]
+    },
+    {
+        "originalFormula": "((S AND P) OR ((NOT R) AND (NOT T)))",
+        "correctTransformedFormula": "(((S AND P) OR (NOT T)) AND ((S AND P) OR (NOT R)))",
+        "wrongTransformedFormulas": [
+            "(((S AND P) AND (NOT R)) OR ((S AND P) AND (NOT T)))",
+            "(((S AND P) AND (NOT T)) OR ((S AND P) AND (NOT R)))",
+            "((((S AND P) OR (NOT R)) OR (S AND P)) AND (((S AND P) OR (NOT R)) OR (NOT T)))"
+        ]
+    },
+    {
+        "originalFormula": "(((NOT S) OR (NOT T)) AND (NOT R))",
+        "correctTransformedFormula": "(((NOT R) AND (NOT T)) OR ((NOT R) AND (NOT S)))",
+        "wrongTransformedFormulas": [
+            "(((NOT R) OR (NOT S)) AND ((NOT R) OR (NOT T)))",
+            "((((NOT R) AND (NOT S)) AND (NOT R)) OR (((NOT R) AND (NOT S)) AND (NOT T)))",
+            "((((NOT R) OR (NOT S)) AND (NOT R)) OR (((NOT R) OR (NOT S)) AND (NOT T)))"
+        ]
+    }
+]

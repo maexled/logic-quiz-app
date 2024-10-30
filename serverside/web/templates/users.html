@@ -1,0 +1,161 @@
+{{ template "header.html" .context }}
+
+<!-- Source: https://getbootstrap.com/docs/5.3/examples/starter-template/ -->
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+	<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+		<a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+			<svg class="bi me-2" width="40" height="32">
+				<use xlink:href="#bootstrap" />
+			</svg>
+			<span class="fs-4">Users</span>
+		</a>
+	</header>
+
+	<main>
+		<div class="row">
+			{{ range .users }}
+			<div class="col-sm-6 mb-3 mb-sm-0 mt-2" id="users">
+				<div class="card" id="{{ .ID }}">
+					<div class="card-body">
+						<h5 class="card-title">{{ .Username }} [{{ .ID }}]</h5>
+						<p class="card-text">
+						<p>E-Mail {{ .Email }}</p>
+						<button class="btn btn-warning" onclick="openChangePasswordModal(this)">Change Password</button>
+						<button class="btn btn-danger" onclick="deleteUser(this)">Delete User</button>
+					</div>
+				</div>
+			</div>
+			{{ end }}
+		</div>
+
+		<!-- Modal -->
+		<!-- Source: https://getbootstrap.com/docs/5.3/components/modal/ -->
+		<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h1 class="modal-title fs-5" id="changePasswordModalLabel">Change Password</h1>
+						<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="mb-3">
+								<label for="newPassword" class="form-label">New Password</label>
+								<input class="form-control" id="newPassword">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onclick="changePassword(this)">Change
+							Password</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Source: https://getbootstrap.com/docs/5.3/components/toasts/#live-example -->
+		<div class="toast-container position-fixed bottom-0 end-0 p-3">
+			<div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+				<div class="toast-header">
+					<strong class="me-auto">Bootstrap</strong>
+					<small>11 mins ago</small>
+					<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+				</div>
+				<div class="toast-body">
+					Hello, world! This is a toast message.
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</main>
+</div>
+
+<script>
+
+	var currentPasswordChangeId = null;
+
+	function deleteUser(button) {
+		var id = button.parentElement.parentElement.id;
+
+		fetch('/api/users/' + id, {
+			method: 'DELETE',
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Failed to delete user with id: " + id);
+				}
+				return response;
+			})
+			.then(data => {
+				location.reload();
+			}).catch((error) => {
+				const text = error.message;
+				console.error('Error:', text);
+				const toastLiveExample = document.getElementById('liveToast')
+				toastLiveExample.querySelector('.toast-body').innerText = "Error: " + text
+				const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+				toastBootstrap.show()
+			});
+	}
+
+	function openChangePasswordModal(button) {
+		var id = button.parentElement.parentElement.id;
+		$('#changePasswordModal').modal('show');
+		currentPasswordChangeId = id;
+	}
+
+	function changePassword(button) {
+		var id = currentPasswordChangeId;
+
+		var password = document.getElementById("newPassword").value;
+
+		fetch('/api/users/' + id + '/change-password', {
+			method: 'PUT',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify({
+				"password": password,
+			})
+		})
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Failed to update password for user with id: " + id);
+				}
+				return response;
+			})
+			.then(data => {
+				resetModalForm();
+				$('#changePasswordModal').modal('hide');
+				const toastLiveExample = document.getElementById('liveToast')
+				toastLiveExample.querySelector('.toast-body').innerText = "Successfully changed password for user with id: " + id
+				const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+				toastBootstrap.show()
+			}).catch((error) => {
+				const text = error.message;
+				console.error('Error:', text);
+				const toastLiveExample = document.getElementById('liveToast')
+				toastLiveExample.querySelector('.toast-body').innerText = "Error: " + text
+				const toastBootstrap = bootstrap.Toast.getOrCreateInstance(toastLiveExample)
+				toastBootstrap.show()
+			});
+	}
+
+	$('#addTaskModal').on('hidden.bs.modal', function (e) {
+		resetModalForm();
+	})
+
+	function resetModalForm() {
+		document.getElementById("newPassword").value = "";
+	}
+
+</script>
+
+</body>
+
+</html>

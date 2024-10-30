@@ -1,0 +1,115 @@
+{{ template "header.html" .context }}
+
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const quizRuns = {{ .quiz_runs_per_day }};
+		const dates = quizRuns.map((run) => run.date);
+		const values = quizRuns.map((run) => run.amount);
+		
+		// https://apexcharts.com/javascript-chart-demos/line-charts/basic/
+		var options = {
+          series: [{
+            name: "Quiz runs per day",
+            data: values
+        }],
+          chart: {
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
+          }
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        title: {
+          text: 'Quiz runs per day for the last 30 days',
+          align: 'left'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: dates,
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+	});
+</script>
+
+<!-- Source: https://getbootstrap.com/docs/5.3/examples/starter-template/ -->
+<div class="col-lg-8 mx-auto p-4 py-md-5">
+	<header class="d-flex align-items-center pb-3 mb-5 border-bottom">
+		<a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+			<svg class="bi me-2" width="40" height="32">
+				<use xlink:href="#bootstrap" />
+			</svg>
+			<span class="fs-4">Statistics</span>
+		</a>
+	</header>
+
+	<main>
+		<div class="row">
+			<div class="col">
+				<div class="card">
+					<h5 class="card-header">Total Quiz Runs this month</h5>
+					<div class="card-body">
+						<p class="card-text">This months there were made {{ len .quiz_runs }} quiz runs.</p>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card">
+					<h5 class="card-header">Error rate this month</h5>
+					<div class="card-body">
+						<p class="card-text">The error rate this month was {{ .error_rate }}%.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+			<div class="col">
+				<div class="card">
+					<h5 class="card-header">Most difficult questions overall</h5>
+					<div class="card-body">
+						<ol>
+							{{ range .most_difficult_questions }}
+							<li>{{ .Question }} [{{ .Ratio }}% error rate]</li>
+							{{ end }}
+						</ol>
+					</div>
+				</div>
+			</div>
+			<div class="col">
+				<div class="card">
+					<h5 class="card-header">Most easiest questions overall</h5>
+					<div class="card-body">
+						<ol>
+							{{ range .most_easiest_questions }}
+							<li>{{ .Question }} [{{ .Ratio }}% error rate]</li>
+							{{ end }}
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row mt-4">
+			<h5>Total Quiz Runs this month</h5>
+			<div id="chart"></div>
+		</div>
+	</main>
+</div>
+
+<script src="/assets/js/apexcharts.min.js"></script>
+
+</body>
+
+</html>

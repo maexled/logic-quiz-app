@@ -1,0 +1,86 @@
+stages:
+  - test
+  - build
+
+variables:
+  SERVERSIDE_PROJECT_DIR: "serverside"
+  FLUTTER_PROJECT_DIR: "frontend"
+
+serverside-test:
+  image: golang:1.22
+  stage: test
+  before_script:
+    - cd $SERVERSIDE_PROJECT_DIR
+  script:
+    - go test -v -coverpkg=./... -coverprofile=coverage.txt -covermode count ./...
+    - go tool cover -html=coverage.txt -o serverside-coverage.html
+    - go get github.com/boumenot/gocover-cobertura
+    - go run github.com/boumenot/gocover-cobertura < coverage.txt > serverside-coverage.xml
+  coverage: "/coverage: \\d+.\\d+% of statements/"
+  artifacts:
+    paths:
+      - $SERVERSIDE_PROJECT_DIR/serverside-coverage.html
+      - $SERVERSIDE_PROJECT_DIR/serverside-coverage.xml
+    expire_in: 2 days
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: $SERVERSIDE_PROJECT_DIR/serverside-coverage.xml
+
+flutter-test:
+  image: ghcr.io/cirruslabs/flutter:3.22.3
+  stage: test
+  before_script:
+    - apt-get update && apt-get install -y lcov
+    - cd $FLUTTER_PROJECT_DIR
+    - flutter doctor -v
+  script:
+    - flutter test --coverage
+    - lcov --list coverage/lcov.info
+    - genhtml coverage/lcov.info --output=coverage
+  coverage: '/\s*lines\.*:\s*([\d\.]+%)/'
+  artifacts:
+    paths:
+      - $FLUTTER_PROJECT_DIR/coverage
+
+serverside-build:
+  image: golang:1.22
+  stage: build
+  before_script:
+    - cd $SERVERSIDE_PROJECT_DIR
+  script:
+    - go build -o server cmd/server/main.go
+  artifacts:
+    untracked: true
+    expire_in: 2 days
+
+flutter-build:
+  image: ghcr.io/cirruslabs/flutter:3.22.3
+  stage: build
+  before_script:
+    - cd $FLUTTER_PROJECT_DIR
+    - flutter doctor -v
+  script:
+    - flutter pub get
+    - flutter build apk --release --build-number ${CI_JOB_ID:0:8}
+    - mv build/app/outputs/flutter-apk/app-release.apk app-release.apk
+  artifacts:
+    paths:
+      - $FLUTTER_PROJECT_DIR/app-release.apk
+    expire_in: 2 days
+
+flutter-build-changed-base-url:
+  image: ghcr.io/cirruslabs/flutter:3.22.3
+  stage: build
+  before_script:
+    - cd $FLUTTER_PROJECT_DIR
+    - flutter doctor -v
+  script:
+    - sed -i "s|^const BASE_API_URL = '.*';|const BASE_API_URL = '${PRODUCTION_URL}';|" lib/constants.dart
+    - flutter pub get
+    - flutter build apk --release --build-number ${CI_JOB_ID:0:8}
+    - mv build/app/outputs/flutter-apk/app-release.apk app-release.apk
+  artifacts:
+    paths:
+      - $FLUTTER_PROJECT_DIR/app-release.apk
+    expire_in: 2 days
